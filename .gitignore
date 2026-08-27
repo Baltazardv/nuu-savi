@@ -1,0 +1,21 @@
+# Dependencias
+node_modules/
+
+# Build de producción (se genera con "npm run build" / en CI)
+dist/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Municipio de Ñuu Savi — Sitio Oficial</title>
+  <meta name="description" content="Sitio web oficial del Municipio de Ñuu Savi, Guerrero. Pueblo de la lluvia. Identidad, historia, cabildo y transparencia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ INTRO / VIDEO ============ -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro__inner">
+      <video id="introVideo" class="intro__video" autoplay muted playsinline preload="auto">
+        <source src="assets/Logo animado.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <button id="introEnter" class="intro__enter" type="button" hidden>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      Entrar al sitio
+    </button>
+    <button id="introSkip" class="intro__skip" type="button">
+      Saltar intro
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 4l10 8-10 8V4zm12 0h2v16h-2V4z" fill="currentColor"/></svg>
+    </button>
+    <div class="intro__progress"><span id="introBar"></span></div>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header id="site-header" class="header">
+    <div class="header__bar container">
+      <a href="index.html" class="brand" aria-label="Inicio — Municipio de Ñuu Savi">
+        <img src="assets/Logo_1.png" alt="Escudo de Ñuu Savi" class="brand__mark" />
+        <span class="brand__text">
+          <strong>Ñuu Savi</strong>
+          <small>Gobierno Municipal · Guerrero</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html" class="nav__link is-active">Inicio</a>
+        <a href="cabildo.html" class="nav__link">Cabildo</a>
+        <a href="historia.html" class="nav__link">Historia</a>
+        <a href="transparencia.html" class="nav__link">Transparencia</a>
+        <a href="contratos.html" class="nav__link">Contratos</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="tel:7472264882" class="btn btn--phone">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.58 3.6a1 1 0 01-.24 1l-2.24 2.2z" fill="currentColor"/></svg>
+          <span>747 226 4882</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="header__greca" aria-hidden="true"></div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html">Inicio</a>
+    <a href="cabildo.html">Cabildo</a>
+    <a href="historia.html">Historia</a>
+    <a href="transparencia.html">Transparencia</a>
+    <a href="contratos.html">Contratos</a>
+    <a href="tel:7472264882" class="mobile-menu__phone">Llamar · 747 226 4882</a>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__rain" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <span class="eyebrow">Sitio web oficial</span>
+          <h1 class="hero__title">
+            <span class="hero__title-mixteco">Ñuu Savi</span>
+            <span class="hero__title-es">Pueblo de la lluvia</span>
+          </h1>
+          <p class="hero__lead">
+            Municipio del estado de Guerrero, constituido el <strong>31 de agosto de 2021</strong>.
+            Cabecera municipal en <strong>Coapinola</strong>. Por nuestra identidad, historia y progreso.
+          </p>
+          <div class="hero__cta">
+            <a href="#identidad" class="btn btn--solid">Conoce el municipio</a>
+            <a href="transparencia.html" class="btn btn--ghost">Gobierno abierto</a>
+          </div>
+        </div>
+
+        <div class="hero__emblem">
+          <div class="emblem-ring">
+            <img src="assets/Logo_1.png" alt="Escudo del Municipio de Ñuu Savi" />
+          </div>
+        </div>
+      </div>
+
+      <a href="#identidad" class="hero__scroll" aria-label="Desplázate">
+        <span></span>
+      </a>
+      <div class="hero__greca" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ IDENTIDAD ============ -->
+    <section class="section identidad" id="identidad">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Tu'un Savi · Nuestra identidad</span>
+          <h2 class="section-title">Somos gente de la lluvia</h2>
+        </div>
+
+        <div class="identidad__grid">
+          <div class="identidad__lead">
+            <p>
+              <strong>Ñuu Savi</strong> significa en mixteco <em>«pueblo de la lluvia»</em>. Nuestro
+              municipio es de reciente creación, pero heredero de una historia profunda: la del
+              antiguo Cacicazgo de Coapinola y de un pueblo que ha sabido conservar su lengua,
+              sus tradiciones y su vínculo con la tierra.
+            </p>
+            <p>
+              Este es el espacio digital donde el gobierno municipal comparte con la comunidad su
+              historia, la conformación de su cabildo y su compromiso con la transparencia y el
+              progreso comunitario.
+            </p>
+            <a href="historia.html" class="link-arrow">Leer nuestra historia
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <ul class="facts">
+            <li class="fact">
+              <span class="fact__num">2021</span>
+              <span class="fact__label">Año de constitución del municipio</span>
+            </li>
+            <li class="fact">
+              <span class="fact__num">Coapinola</span>
+              <span class="fact__label">Cabecera municipal</span>
+            </li>
+            <li class="fact">
+              <span class="fact__num">Tu'un Savi</span>
+              <span class="fact__label">Lengua originaria de la comunidad</span>
+            </li>
+            <li class="fact">
+              <span class="fact__num">Guerrero</span>
+              <span class="fact__label">Estado, C.P. 39210</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CABILDO ============ -->
+    <section class="section cabildo" id="cabildo">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-kicker">Gobierno municipal</span>
+          <h2 class="section-title">Nuestro Cabildo</h2>
+          <p class="section-sub">Servidoras y servidores públicos al frente del Ayuntamiento de Ñuu Savi, periodo 2024–2027.</p>
+        </div>
+
+        <div class="cabildo__grid">
+          <article class="official">
+            <div class="official__photo" data-initial="PM"></div>
+            <div class="official__body">
+              <span class="official__role">Presidencia Municipal</span>
+              <h3 class="official__name">Presidente Municipal</h3>
+            </div>
+          </article>
+          <article class="official">
+            <div class="official__photo" data-initial="SP"></div>
+            <div class="official__body">
+              <span class="official__role">Sindicatura</span>
+              <h3 class="official__name">Síndica Procuradora</h3>
+            </div>
+          </article>
+          <article class="official">
+            <div class="official__photo" data-initial="OP"></div>
+            <div class="official__body">
+              <span class="official__role">Regiduría</span>
+              <h3 class="official__name">Regidor de Obras Públicas</h3>
+            </div>
+          </article>
+          <article class="official">
+            <div class="official__photo" data-initial="SA"></div>
+            <div class="official__body">
+              <span class="official__role">Regiduría</span>
+              <h3 class="official__name">Regidora de Salud</h3>
+            </div>
+          </article>
+          <article class="official">
+            <div class="official__photo" data-initial="MA"></div>
+            <div class="official__body">
+              <span class="official__role">Regiduría</span>
+              <h3 class="official__name">Regidora de la Mujer y Asuntos Indígenas</h3>
+            </div>
+          </article>
+          <article class="official">
+            <div class="official__photo" data-initial="DU"></div>
+            <div class="official__body">
+              <span class="official__role">Regiduría</span>
+              <h3 class="official__name">Regidora de Desarrollo Urbano</h3>
+            </div>
+          </article>
+        </div>
+        <p class="cabildo__note">Las fotografías y nombres oficiales de cada integrante se incorporarán con el material que proporcione el municipio.</p>
+      </div>
+    </section>
+
+    <!-- ============ HISTORIA TEASER ============ -->
+    <section class="section historia-teaser" id="historia">
+      <div class="container historia-teaser__grid">
+        <div class="historia-teaser__art" aria-hidden="true">
+          <img src="assets/Logo_1.png" alt="" />
+        </div>
+        <div class="historia-teaser__content">
+          <span class="section-kicker section-kicker--light">Memoria viva</span>
+          <h2 class="section-title section-title--light">Historia del Cacicazgo en Coapinola</h2>
+          <p>
+            El territorio de Ñuu Savi guarda la memoria del antiguo Cacicazgo de Coapinola. Un
+            documento histórico de ocho páginas reúne los datos que sostienen nuestra identidad
+            y el orgullo de las generaciones que nos precedieron.
+          </p>
+          <a href="historia.html" class="btn btn--gold">Ver documento histórico</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GOBIERNO ABIERTO ============ -->
+    <section class="section abierto" id="gobierno-abierto">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="section-kicker">Compromiso público</span>
+          <h2 class="section-title">Gobierno abierto</h2>
+          <p class="section-sub">Acceso a la información pública y rendición de cuentas de la comunidad de Ñuu Savi.</p>
+        </div>
+
+        <div class="cards">
+          <a href="transparencia.html" class="card">
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 4h11l5 5v11a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 011-1zm10 1v5h5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M7 13h9M7 16h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="card__title">Transparencia</h3>
+            <p class="card__text">Transparencia y acceso a la información pública, con las obligaciones comunes y específicas del municipio.</p>
+            <span class="card__link">Ir a Transparencia →</span>
+          </a>
+
+          <a href="contratos.html" class="card">
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M6 3h9l4 4v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="card__title">Contratos de Obra Pública</h3>
+            <p class="card__text">Listado de contratos de obras públicas del municipio con sus documentos e insumos descargables.</p>
+            <span class="card__link">Ver contratos →</span>
+          </a>
+
+          <div class="card card--tramite">
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M7 3h7l4 4v14H7a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M9 14h6M9 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="card__title">Acta de Nacimiento</h3>
+            <p class="card__text">Trámite en línea para imprimir tu acta de nacimiento.</p>
+            <span class="card__badge">Enlace oficial por verificar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__greca" aria-hidden="true"></div>
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/Logo_2.png" alt="Escudo del Ayuntamiento de Ñuu Savi" />
+        <p class="footer__motto">Por nuestra identidad,<br />historia y progreso.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Municipio</h4>
+        <a href="index.html">Inicio</a>
+        <a href="cabildo.html">Cabildo</a>
+        <a href="historia.html">Historia</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Gobierno abierto</h4>
+        <a href="transparencia.html">Transparencia</a>
+        <a href="contratos.html">Contratos de obra</a>
+      </div>
+
+      <div class="footer__col footer__contact">
+        <h4>Contacto</h4>
+        <p>Ayuntamiento de Ñuu Savi, Gro.<br />C.P. 39210, Coapinola, Guerrero</p>
+        <a href="tel:7472264882">747 226 4882</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Síguenos en Facebook</a>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <span>© <span id="year"></span> Municipio de Ñuu Savi. Todos los derechos reservados.</span>
+      <span>nuu-savi.gob.mx</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
