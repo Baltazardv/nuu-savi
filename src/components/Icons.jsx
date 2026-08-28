@@ -32,6 +32,8 @@ export const Icon = ({ name, size = 24, ...props }) => {
     leaf: <><path d="M4 20C3 12 8 5 20 4c1 12-6 17-14 15z" {...S} /><path d="M4 20c4-6 8-9 13-11" {...S} /></>,
     book: <><path d="M12 6.5C10 5 6.5 5 4.5 5.6v12.2c2-.6 5.5-.6 7.5.9 2-1.5 5.5-1.5 7.5-.9V5.6C17.5 5 14 5 12 6.5z" {...S} /><path d="M12 6.5v13" {...S} /></>,
     tree: <><path d="M12 3l4.5 6.5h-2.5l4 5.5H6l4-5.5H7.5z" {...S} /><path d="M12 15.5V21" {...S} /></>,
+    flag: <><path d="M5 21V4" {...S} /><path d="M5 4.5h12l-2.2 3.5L17 11.5H5" {...S} /></>,
+    calendar: <><rect x="4" y="5" width="16" height="15" rx="2" {...S} /><path d="M8 3v4M16 3v4M4 10h16" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>
