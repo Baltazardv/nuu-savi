@@ -26,7 +26,8 @@ export const events = [
     cat: "comunidad",
     title: "Asamblea comunitaria de Ñuu Savi",
     place: "Explanada municipal · Coapinola",
-    img: "/assets/fotos/asamblea.jpg",
+    img: "/assets/fotos/eventos/asamblea.jpg",
+    fallback: "/assets/fotos/asamblea.jpg",
   },
   {
     id: 2,
@@ -35,7 +36,8 @@ export const events = [
     cat: "civico",
     title: "Ceremonia del Grito de Independencia",
     place: "Plaza principal · Coapinola",
-    img: "/assets/fotos/cabildo-grupo.jpg",
+    img: "/assets/fotos/eventos/grito.jpg",
+    fallback: "/assets/fotos/cabildo-grupo.jpg",
   },
   {
     id: 3,
@@ -44,7 +46,8 @@ export const events = [
     cat: "salud",
     title: "Jornada de salud comunitaria",
     place: "Centro de salud municipal",
-    img: "/assets/fotos/administracion.jpg",
+    img: "/assets/fotos/eventos/salud.jpg",
+    fallback: "/assets/fotos/administracion.jpg",
   },
   {
     id: 4,
@@ -53,7 +56,8 @@ export const events = [
     cat: "cultura",
     title: "Encuentro de lengua Tu'un Savi",
     place: "Casa de la cultura",
-    img: "/assets/fotos/reunion-2.jpg",
+    img: "/assets/fotos/eventos/lengua.jpg",
+    fallback: "/assets/fotos/reunion-2.jpg",
   },
   {
     id: 5,
@@ -62,6 +66,7 @@ export const events = [
     cat: "ambiente",
     title: "Faena y reforestación comunitaria",
     place: "Cerro de Coapinola",
-    img: "/assets/fotos/capacitacion-4.jpg",
+    img: "/assets/fotos/eventos/reforestacion.jpg",
+    fallback: "/assets/fotos/capacitacion-4.jpg",
   },
 ];

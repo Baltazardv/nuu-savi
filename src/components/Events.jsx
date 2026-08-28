@@ -70,7 +70,16 @@ export default function Events() {
           return (
             <article className="event" key={ev.id}>
               <div className="event__media" style={{ background: `linear-gradient(150deg, ${c.color}, ${c.color}99)` }}>
-                <img src={asset(ev.img)} alt={ev.title} loading="lazy" onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} />
+                <img
+                  src={asset(ev.img)}
+                  alt={ev.title}
+                  loading="lazy"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    if (ev.fallback && !el.dataset.fb) { el.dataset.fb = "1"; el.src = asset(ev.fallback); }
+                    else { el.style.visibility = "hidden"; }
+                  }}
+                />
                 <span className="event__badge">{c.label}</span>
                 <span className="event__cat-icon" style={{ background: c.color }}><Icon name={c.icon} size={19} /></span>
               </div>
