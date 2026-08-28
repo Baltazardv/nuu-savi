@@ -273,7 +273,9 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; background: var(--
   background-size: 20px; }
 .territory__grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 
-.territory__greca { display: block; width: 130px; height: 16px; margin-bottom: 1rem; background-repeat: repeat-x; background-size: auto 100%; }
+.territory__greca { display: block; width: 300px; max-width: 82%; height: 18px; margin-bottom: 1.1rem; background-repeat: repeat-x; background-size: auto 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 9%, #000 86%, transparent 100%); }
 .territory .h2 { margin-bottom: .2rem; }
 .territory__kicker { font-size: .82rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--primary-soft); }
 .territory__divider { display: block; width: 210px; max-width: 60%; height: 12px; margin: 1rem 0 1.4rem; position: relative;
