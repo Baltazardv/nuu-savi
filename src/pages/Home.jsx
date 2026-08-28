@@ -10,7 +10,7 @@ import FacebookFeed from "../components/FacebookFeed.jsx";
 
 function AboutStrip() {
   return (
-    <section className="section about">
+    <section className="section about" id="sobre">
       <div className="container about__inner">
         <p className="kicker">Comunidad de Ñuu Savi</p>
         <h2 className="h2 about__title">Pueblo de la lluvia</h2>

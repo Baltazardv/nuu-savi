@@ -1,16 +1,8 @@
-import { useState } from "react";
 import QuickAccess from "./QuickAccess.jsx";
-import Icon from "./Icons.jsx";
+import SiteSearch from "./SiteSearch.jsx";
 import { asset } from "../lib/asset.js";
 
 export default function Hero() {
-  const [q, setQ] = useState("");
-
-  const onSearch = (e) => {
-    e.preventDefault();
-    // Punto de enganche para una búsqueda futura del sitio.
-  };
-
   return (
     <section className="hero">
       <div className="hero__bg" aria-hidden="true">
@@ -38,18 +30,7 @@ export default function Hero() {
         <h1 className="hero__title">Ñuu Savi</h1>
         <p className="hero__sub">Pueblo de la lluvia · Guerrero, México</p>
 
-        <form className="hero__search" onSubmit={onSearch} role="search">
-          <input
-            type="search"
-            placeholder="¿Qué buscas en el sitio?"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            aria-label="Buscar en el sitio"
-          />
-          <button type="submit" aria-label="Buscar">
-            <Icon name="search" size={20} />
-          </button>
-        </form>
+        <SiteSearch />
 
         <QuickAccess />
       </div>

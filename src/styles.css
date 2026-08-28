@@ -208,6 +208,28 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; background: var(--
 .hero__search button { flex-shrink: 0; width: 48px; height: 48px; border: none; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; cursor: pointer; transition: background .2s, transform .2s; }
 .hero__search button:hover { background: var(--primary-deep); transform: scale(1.05); }
 
+/* Buscador con sugerencias */
+.hero__search-wrap { position: relative; width: min(100%, 560px); margin-inline: auto; z-index: 10; }
+.hero__search-wrap .hero__search { width: 100%; max-width: none; margin: 0; }
+.search-suggest {
+  position: absolute; top: calc(100% + 10px); left: 0; width: 100%; z-index: 30;
+  background: #fff; border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,.45);
+  list-style: none; padding: .4rem; max-height: 344px; overflow-y: auto; text-align: left;
+  animation: fadeDown .18s var(--ease) both;
+}
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.search-suggest__item {
+  display: flex; align-items: center; gap: .6rem; padding: .7rem .9rem;
+  border-radius: 12px; cursor: pointer; color: var(--ink);
+}
+.search-suggest__item svg { color: var(--primary-soft); flex-shrink: 0; }
+.search-suggest__item.is-active { background: var(--primary-wash); }
+.search-suggest__title { flex: 1; font-weight: 500; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.search-suggest__badge { flex-shrink: 0; font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--primary-deep); background: var(--primary-wash); padding: .22rem .55rem; border-radius: 100px; }
+.search-suggest__item.is-active .search-suggest__badge { background: #fff; }
+.search-suggest__empty { padding: 1rem; text-align: center; color: var(--ink-soft); font-size: .92rem; }
+
 /* Greca recta (cenefa mixteca real) adherida al borde inferior de la foto del hero */
 .hero__band {
   position: absolute; left: 0; bottom: 0; width: 100%; height: 26px; z-index: 4;
