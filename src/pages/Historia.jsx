@@ -1,5 +1,6 @@
 import PageHero from "../components/PageHero.jsx";
 import Icon from "../components/Icons.jsx";
+import { asset } from "../lib/asset.js";
 
 export default function Historia() {
   // Cuando el municipio comparta el PDF, colócalo en /assets/Cacicazgo-de-Coapinola.pdf
@@ -47,7 +48,7 @@ export default function Historia() {
 
           <div className="doc-embed">
             {pdfDisponible ? (
-              <iframe className="doc-embed__frame" src={pdf} title="Cacicazgo de Coapinola" />
+              <iframe className="doc-embed__frame" src={asset(pdf)} title="Cacicazgo de Coapinola" />
             ) : (
               <div className="doc-embed__placeholder">
                 <Icon name="doc" size={54} />

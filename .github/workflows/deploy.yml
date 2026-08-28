@@ -25,7 +25,9 @@ jobs:
           cache: npm
       - run: npm ci
       # El repo se sirve en /nuu-savi/, por eso el base. (El build para cPanel usa base "/").
-      - run: npm run build -- --base=/nuu-savi/
+      - run: npm run build
+        env:
+          VITE_BASE: /nuu-savi/
       # Fallback SPA: GitHub Pages no reescribe rutas, así 404 sirve el index.
       - run: Copy-Item dist/index.html dist/404.html
         shell: pwsh

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { site, nav } from "../data/site.js";
+import { asset } from "../lib/asset.js";
 import Icon from "./Icons.jsx";
 
 export default function Header({ transparentOnTop = false }) {
@@ -21,7 +22,7 @@ export default function Header({ transparentOnTop = false }) {
       <header className={`header${scrolled ? " is-scrolled" : ""}${overHero ? " is-over-hero" : ""}`}>
         <div className="header__bar container">
           <Link to="/" className="brand" aria-label={`Inicio — ${site.longName}`}>
-            <img src="/assets/escudo.png" alt="Escudo de Ñuu Savi" className="brand__mark" />
+            <img src={asset("/assets/escudo.png")} alt="Escudo de Ñuu Savi" className="brand__mark" />
             <span className="brand__text">
               <strong>Ñuu Savi</strong>
               <small>Gobierno Municipal · Guerrero</small>

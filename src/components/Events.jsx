@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { events as fallbackEvents } from "../data/events.js";
 import { getEventos } from "../lib/wp.js";
+import { asset } from "../lib/asset.js";
 import Icon from "./Icons.jsx";
 
 export default function Events() {
@@ -39,7 +40,7 @@ export default function Events() {
       <div className="events__track" ref={trackRef}>
         {events.map((ev, i) => (
           <article className="event" key={ev.id}>
-            <div className={`event__media tone-${(i % 4) + 1}`} style={ev.img ? { backgroundImage: `url(${ev.img})` } : undefined}>
+            <div className={`event__media tone-${(i % 4) + 1}`} style={ev.img ? { backgroundImage: `url(${asset(ev.img)})` } : undefined}>
               {ev.tag && <span className="event__tag">{ev.tag}</span>}
             </div>
             <div className="event__body">

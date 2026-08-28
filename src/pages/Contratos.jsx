@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero.jsx";
 import { contracts } from "../data/contracts.js";
 import Icon from "../components/Icons.jsx";
+import { asset } from "../lib/asset.js";
 
 export default function Contratos() {
   return (
@@ -20,8 +21,8 @@ export default function Contratos() {
                   <div className="contract__label">{c.label}</div>
                 </div>
                 <div className="contract__docs">
-                  <a className="doc-btn" href={c.contrato}><Icon name="download" size={14} /> Contrato</a>
-                  <a className="doc-btn" href={c.insumos}><Icon name="download" size={14} /> Insumos</a>
+                  <a className="doc-btn" href={asset(c.contrato)}><Icon name="download" size={14} /> Contrato</a>
+                  <a className="doc-btn" href={asset(c.insumos)}><Icon name="download" size={14} /> Insumos</a>
                 </div>
               </article>
             ))}

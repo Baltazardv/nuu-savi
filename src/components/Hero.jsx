@@ -1,6 +1,7 @@
 import { useState } from "react";
 import QuickAccess from "./QuickAccess.jsx";
 import Icon from "./Icons.jsx";
+import { asset } from "../lib/asset.js";
 
 export default function Hero() {
   const [q, setQ] = useState("");
@@ -14,7 +15,7 @@ export default function Hero() {
     <section className="hero">
       <div className="hero__bg" aria-hidden="true">
         {/* Foto real de la comunidad; el paisaje SVG queda de respaldo debajo. */}
-        <img className="hero__photo" src="/assets/fotos/hero-comunidad.jpg" alt="" loading="eager" />
+        <img className="hero__photo" src={asset("/assets/fotos/hero-comunidad.jpg")} alt="" loading="eager" />
         <svg className="hero__scene" viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice">
           <defs>
             <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -54,9 +55,9 @@ export default function Hero() {
       </div>
 
       {/* Greca recta adherida al borde inferior de la foto + medallón central */}
-      <div className="hero__band" aria-hidden="true" />
+      <div className="hero__band" aria-hidden="true" style={{ backgroundImage: `url(${asset("/assets/fotos/greca.png")})` }} />
       <span className="hero__medallion" aria-hidden="true">
-        <img src="/assets/fotos/medallon.png" alt="" />
+        <img src={asset("/assets/fotos/medallon.png")} alt="" />
       </span>
     </section>
   );

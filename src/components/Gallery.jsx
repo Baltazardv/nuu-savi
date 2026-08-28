@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Icon from "./Icons.jsx";
+import { asset } from "../lib/asset.js";
 
 const photos = [
   { src: "/assets/fotos/capacitacion-1.jpg", cap: "Capacitación: Manual de Organización de la Administración Pública Municipal" },
@@ -45,7 +46,7 @@ export default function Gallery() {
       <div className="container gallery__grid">
         {photos.map((p, i) => (
           <button className="gallery__item" key={p.src} onClick={() => setIndex(i)} aria-label={`Ampliar: ${p.cap}`}>
-            <img src={p.src} alt={p.cap} loading="lazy" />
+            <img src={asset(p.src)} alt={p.cap} loading="lazy" />
             <span className="gallery__zoom"><Icon name="search" size={18} /></span>
           </button>
         ))}
@@ -60,7 +61,7 @@ export default function Gallery() {
             <Icon name="chevronLeft" size={30} />
           </button>
           <figure className="lightbox__fig" onClick={(e) => e.stopPropagation()}>
-            <img src={photos[index].src} alt={photos[index].cap} />
+            <img src={asset(photos[index].src)} alt={photos[index].cap} />
             <figcaption>{photos[index].cap}</figcaption>
           </figure>
           <button className="lightbox__nav lightbox__next" aria-label="Siguiente" onClick={(e) => { e.stopPropagation(); setIndex((i) => (i + 1) % photos.length); }}>

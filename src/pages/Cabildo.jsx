@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import { officials, initialsOf } from "../data/officials.js";
 import Icon from "../components/Icons.jsx";
+import { asset } from "../lib/asset.js";
 
 function OfficialModal({ member, onClose }) {
   useEffect(() => {
@@ -25,7 +26,7 @@ function OfficialModal({ member, onClose }) {
         <div className="modal__grid">
           <div className="modal__photo">
             {member.photo ? (
-              <img src={member.photo} alt={member.name} />
+              <img src={asset(member.photo)} alt={member.name} />
             ) : (
               <div className="modal__initials">{initialsOf(member.name)}</div>
             )}
@@ -68,7 +69,7 @@ export default function Cabildo() {
       <section className="section" style={{ paddingBottom: "1rem" }}>
         <div className="container">
           <figure className="cabildo-group">
-            <img src="/assets/fotos/cabildo-grupo.jpg" alt="Integrantes del Cabildo de Ñuu Savi 2024–2027" />
+            <img src={asset("/assets/fotos/cabildo-grupo.jpg")} alt="Integrantes del Cabildo de Ñuu Savi 2024–2027" />
             <figcaption>Instalación del H. Ayuntamiento de Ñuu Savi · Periodo 2024–2027</figcaption>
           </figure>
         </div>
@@ -87,7 +88,7 @@ export default function Cabildo() {
                 onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), setSelected(o))}
               >
                 <div className="official__photo" data-initial={initialsOf(o.name)}>
-                  {o.photo && <img src={o.photo} alt={o.name} loading="lazy" />}
+                  {o.photo && <img src={asset(o.photo)} alt={o.name} loading="lazy" />}
                 </div>
                 <div className="official__body">
                   <span className="official__role">{o.role}</span>

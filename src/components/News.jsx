@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { news as fallbackNews } from "../data/news.js";
 import { getActualidades } from "../lib/wp.js";
+import { asset } from "../lib/asset.js";
 import Icon from "./Icons.jsx";
 
 export default function News() {
@@ -32,7 +33,7 @@ export default function News() {
         <article className="news__featured">
           <div
             className={`news__featured-media${featured.image ? "" : " tone-2"}`}
-            style={featured.image ? { backgroundImage: `url(${featured.image})` } : undefined}
+            style={featured.image ? { backgroundImage: `url(${asset(featured.image)})` } : undefined}
             aria-hidden="true"
           />
           <div className="news__featured-body">

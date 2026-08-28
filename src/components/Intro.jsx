@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { asset } from "../lib/asset.js";
 
 // Intro de video que se reproduce al entrar y hace fade al sitio.
 // Solo una vez por sesión (sessionStorage). Botón "Saltar" y fallback "Entrar".
@@ -74,7 +75,7 @@ export default function Intro() {
     <div className={`intro${hidden ? " is-hidden" : ""}`} aria-hidden="true">
       <div className="intro__inner">
         <video ref={videoRef} className="intro__video" autoPlay muted playsInline preload="auto">
-          <source src="/assets/intro.mp4" type="video/mp4" />
+          <source src={asset("/assets/intro.mp4")} type="video/mp4" />
         </video>
       </div>
 

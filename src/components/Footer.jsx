@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { site, nav } from "../data/site.js";
+import { asset } from "../lib/asset.js";
 import Icon from "./Icons.jsx";
 
 export default function Footer() {
@@ -9,7 +10,7 @@ export default function Footer() {
       <div className="footer__greca" aria-hidden="true" />
       <div className="container footer__grid">
         <div className="footer__brand">
-          <img src="/assets/escudo-ayuntamiento.png" alt="Escudo del Ayuntamiento de Ñuu Savi" />
+          <img src={asset("/assets/escudo-ayuntamiento.png")} alt="Escudo del Ayuntamiento de Ñuu Savi" />
           <p className="footer__motto">Por nuestra identidad,<br />historia y progreso.</p>
           <div className="footer__social">
             <a href={site.facebook} target="_blank" rel="noopener" aria-label="Facebook"><Icon name="facebook" size={18} /></a>
