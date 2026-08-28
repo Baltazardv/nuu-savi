@@ -30,6 +30,8 @@ export const Icon = ({ name, size = 24, ...props }) => {
     mountain: <><path d="M3 19l6-10 4 6 2.5-4L21 19H3z" {...S} /><circle cx="17" cy="6.5" r="1.6" {...S} /></>,
     cloudRain: <><path d="M7 15a4 4 0 01.5-8 5 5 0 019.7 1.3A3.4 3.4 0 0117 15H7z" {...S} /><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2" {...S} /></>,
     leaf: <><path d="M4 20C3 12 8 5 20 4c1 12-6 17-14 15z" {...S} /><path d="M4 20c4-6 8-9 13-11" {...S} /></>,
+    book: <><path d="M12 6.5C10 5 6.5 5 4.5 5.6v12.2c2-.6 5.5-.6 7.5.9 2-1.5 5.5-1.5 7.5-.9V5.6C17.5 5 14 5 12 6.5z" {...S} /><path d="M12 6.5v13" {...S} /></>,
+    tree: <><path d="M12 3l4.5 6.5h-2.5l4 5.5H6l4-5.5H7.5z" {...S} /><path d="M12 15.5V21" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>

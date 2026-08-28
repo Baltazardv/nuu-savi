@@ -6,10 +6,10 @@ import { asset } from "../lib/asset.js";
 // Categorías de puntos de interés del territorio.
 const categories = [
   { key: "salud", label: "Salud", desc: "Centros de salud y hospitales", icon: "health", color: "#b5502f" },
-  { key: "educacion", label: "Educación", desc: "Escuelas y centros educativos", icon: "school", color: "#2f8f86" },
+  { key: "educacion", label: "Educación", desc: "Escuelas y centros educativos", icon: "book", color: "#2f8f86" },
   { key: "cultura", label: "Cultura", desc: "Espacios y centros culturales", icon: "culture", color: "#e6b23c" },
   { key: "servicios", label: "Servicios públicos", desc: "Edificios y oficinas municipales", icon: "landmark", color: "#14716a" },
-  { key: "naturaleza", label: "Naturaleza", desc: "Cerros, ríos y áreas naturales", icon: "mountain", color: "#5f8b4c" },
+  { key: "naturaleza", label: "Naturaleza", desc: "Cerros, ríos y áreas naturales", icon: "tree", color: "#5f8b4c" },
 ];
 
 // Pines de ejemplo sobre el mapa de respaldo (x,y en coordenadas del viewBox 500x380).
