@@ -22,6 +22,14 @@ export const Icon = ({ name, size = 24, ...props }) => {
     map: <path d="M9 4L3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4zm0 0v13m6-10.5v13" {...S} />,
     shield: <><path d="M12 3l8 3.5V12c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6.5L12 3z" {...S} /><path d="M9 12l2 2 4-4" {...S} /></>,
     info: <><circle cx="12" cy="12" r="9" {...S} /><path d="M12 11v5M12 8h0" {...S} /></>,
+    // Categorías del mapa
+    health: <><path d="M10 4h4v6h6v4h-6v6h-4v-6H4v-4h6z" {...S} /></>,
+    school: <><path d="M12 4L2 9l10 5 10-5-10-5z" {...S} /><path d="M6 11.5V16c0 1.2 2.7 2.5 6 2.5s6-1.3 6-2.5v-4.5" {...S} /><path d="M22 9.2v5" {...S} /></>,
+    culture: <><path d="M5 5h14v6a7 7 0 01-14 0V5z" {...S} /><path d="M9.5 9h0M14.5 9h0" {...S} /><path d="M9 13c1.2 1 4.8 1 6 0" {...S} /></>,
+    landmark: <><path d="M3 9l9-5 9 5" {...S} /><path d="M5 9.5v8.5M9.5 9.5v8.5M14.5 9.5v8.5M19 9.5v8.5" {...S} /><path d="M3 21h18" {...S} /></>,
+    mountain: <><path d="M3 19l6-10 4 6 2.5-4L21 19H3z" {...S} /><circle cx="17" cy="6.5" r="1.6" {...S} /></>,
+    cloudRain: <><path d="M7 15a4 4 0 01.5-8 5 5 0 019.7 1.3A3.4 3.4 0 0117 15H7z" {...S} /><path d="M8 18l-1 2M12 18l-1 2M16 18l-1 2" {...S} /></>,
+    leaf: <><path d="M4 20C3 12 8 5 20 4c1 12-6 17-14 15z" {...S} /><path d="M4 20c4-6 8-9 13-11" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>

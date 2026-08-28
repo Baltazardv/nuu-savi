@@ -266,18 +266,42 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; background: var(--
 /* =========================================================
    TERRITORY
    ========================================================= */
-.territory { background: var(--paper); }
-.territory__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-.territory__text p { color: var(--ink-soft); margin: 1rem 0; font-size: 1.05rem; max-width: 46ch; }
-.territory__text .kicker { margin: .3rem 0 1.2rem; }
-.territory__text .btn { margin-top: 1rem; }
-.territory__mapwrap { display: flex; flex-direction: column; align-items: center; }
-.territory__map { width: 100%; max-width: 460px; filter: drop-shadow(0 30px 40px rgba(14,79,73,.28)); }
-.territory__regions .region { fill: var(--primary); stroke: #fff; stroke-width: 2.5; transition: fill .2s; cursor: pointer; }
-.territory__regions .region:hover { fill: var(--accent); }
-.territory__pin path { fill: var(--terra); }
-.territory__pin-dot { fill: #fff; }
-.territory__note { margin-top: 1rem; font-size: .82rem; color: var(--ink-soft); font-style: italic; text-align: center; }
+.territory { position: relative; overflow: hidden;
+  background: radial-gradient(130% 120% at 100% -10%, rgba(47,143,134,.10), transparent 55%), linear-gradient(180deg, #fbfaf4, #f1efe4); }
+.territory::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 40px; opacity: .35; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 1l9 9-9 9-9-9z' fill='none' stroke='%236d8355' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 20px; }
+.territory__grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+
+.territory__greca { display: block; width: 130px; height: 16px; margin-bottom: 1rem; background-repeat: repeat-x; background-size: auto 100%; }
+.territory .h2 { margin-bottom: .2rem; }
+.territory__kicker { font-size: .82rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--primary-soft); }
+.territory__divider { display: block; width: 210px; max-width: 60%; height: 12px; margin: 1rem 0 1.4rem; position: relative;
+  background: linear-gradient(var(--accent), var(--accent)) left center/100% 2px no-repeat; }
+.territory__divider::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; transform: translate(-50%,-50%) rotate(45deg); background: var(--accent); }
+.territory__lead { color: var(--ink-soft); font-size: 1.06rem; max-width: 44ch; margin-bottom: 1.6rem; }
+
+.territory__legend { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1.4rem; margin-bottom: 2rem; }
+.territory__cat { display: flex; align-items: center; gap: .7rem; }
+.territory__cat-icon { flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; }
+.territory__cat-text { display: flex; flex-direction: column; line-height: 1.15; }
+.territory__cat-text strong { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink); }
+.territory__cat-text small { font-size: .78rem; color: var(--ink-soft); }
+
+.territory__mapwrap { position: relative; }
+.territory__map-card { position: relative; z-index: 2; margin: 0; border-radius: 22px; overflow: hidden; background: #fff; padding: 10px; box-shadow: 0 34px 70px -30px rgba(14,79,73,.5); border: 1px solid var(--line); }
+.territory__map-card img, .territory__map-svg { display: block; width: 100%; border-radius: 14px; }
+.territory__map-svg { background: #eaf1ee; }
+.territory__note { margin-top: 1rem; font-size: .82rem; color: var(--ink-soft); font-style: italic; text-align: right; position: relative; z-index: 2; }
+
+.territory__dots { position: absolute; top: -14px; right: -8px; width: 108px; height: 88px; z-index: 1; opacity: .5; color: var(--primary-soft);
+  background-image: radial-gradient(currentColor 1.6px, transparent 1.6px); background-size: 14px 14px; }
+.territory__leaf { position: absolute; z-index: 3; color: #6d8355; opacity: .75; }
+.territory__leaf--1 { top: -20px; left: -16px; transform: rotate(-25deg); }
+.territory__leaf--2 { bottom: -18px; right: -8px; transform: rotate(150deg); }
+.territory__rain { position: absolute; z-index: 1; color: var(--primary-soft); opacity: .32; }
+.territory__rain--1 { top: 14%; left: 2.5%; }
+.territory__rain--2 { bottom: 18%; left: 5.5%; }
 
 /* =========================================================
    EVENTS
@@ -447,6 +471,8 @@ table.data td:first-child { font-weight: 600; }
   .footer__grid { grid-template-columns: 1fr; }
   .events__track { padding-left: 1.5rem; padding-right: 1.5rem; }
   .event { flex-basis: 260px; }
+  .territory__legend { grid-template-columns: 1fr; }
+  .territory__leaf, .territory__rain, .territory__dots { display: none; }
 }
 
 .section-sub { font-size: 1.08rem; }
