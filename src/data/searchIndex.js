@@ -53,6 +53,24 @@ const staticEntries = [
     text: "facebook redes sociales siguenos pagina oficial",
   },
   {
+    title: "Servicios en línea y trámites",
+    section: "Trámites",
+    to: "/#servicios",
+    text: "servicios en linea tramites gaceta municipal transparencia gobierno de mexico gob.mx",
+  },
+  {
+    title: "Imprime tu CURP",
+    section: "Trámites",
+    to: "/#servicios",
+    text: "curp clave unica de registro de poblacion imprimir tramite gob.mx identidad",
+  },
+  {
+    title: "Imprime tu Acta de Nacimiento",
+    section: "Trámites",
+    to: "/#servicios",
+    text: "acta de nacimiento certificada imprimir tramite registro civil gob.mx",
+  },
+  {
     title: "Cabildo",
     section: "Página",
     to: "/cabildo",

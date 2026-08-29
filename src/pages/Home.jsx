@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Hero from "../components/Hero.jsx";
 import CabildoTeaser from "../components/CabildoTeaser.jsx";
 import Territory from "../components/Territory.jsx";
+import Servicios from "../components/Servicios.jsx";
 import Events from "../components/Events.jsx";
 import Gallery from "../components/Gallery.jsx";
 import News from "../components/News.jsx";
@@ -47,6 +48,7 @@ export default function Home() {
       <AboutStrip />
       <CabildoTeaser />
       <Territory />
+      <Servicios />
       <Events />
       <Gallery />
       <News />

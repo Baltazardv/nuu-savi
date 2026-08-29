@@ -7,7 +7,7 @@ const items = [
   { label: "Ubicación", to: "#territorio", icon: "marker", color: "#2f8f86", anchor: true },
   { label: "Servicios", to: "#capacitaciones", icon: "hands", color: "#d6457f", anchor: true },
   { label: "Gobierno", to: "/cabildo", icon: "building", color: "#e6b23c" },
-  { label: "Trámites", to: "/transparencia", icon: "doc", color: "#7b5ea7" },
+  { label: "Trámites", to: "#servicios", icon: "doc", color: "#7b5ea7", anchor: true },
 ];
 
 // Desplazamiento suave a una sección, compensando el header fijo.

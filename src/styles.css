@@ -357,6 +357,21 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; background: var(--
 .events__cta-phone a { display: inline-flex; align-items: center; gap: .3rem; font-weight: 700; color: var(--primary-deep); margin-top: .1rem; }
 
 /* =========================================================
+   SERVICIOS EN LÍNEA (trámites)
+   ========================================================= */
+.servicios { background: var(--paper); }
+.servicios__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+.service { display: flex; flex-direction: column; gap: .7rem; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--primary); border-radius: var(--radius); padding: 1.7rem 1.5rem; color: var(--ink); transition: transform .25s var(--ease), box-shadow .25s; }
+a.service:hover, .service:not(.service--static):hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+.service__icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; margin-bottom: .3rem; }
+.service__body { flex-grow: 1; }
+.service__title { font-family: var(--font-display); font-weight: 600; font-size: 1.16rem; color: var(--primary-deep); display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; line-height: 1.2; }
+.service__gob { font-family: var(--font-body); font-size: .6rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #fff; background: #9f2241; padding: .18rem .45rem; border-radius: 5px; }
+.service__desc { color: var(--ink-soft); font-size: .93rem; margin-top: .5rem; }
+.service__cta { display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; font-size: .9rem; }
+.service__badge { align-self: flex-start; font-size: .76rem; font-weight: 700; color: #9a6d12; background: rgba(230,178,60,.16); padding: .3rem .7rem; border-radius: 100px; }
+
+/* =========================================================
    NEWS
    ========================================================= */
 .news__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
@@ -486,6 +501,7 @@ table.data td:first-child { font-weight: 600; }
   .cards--3 { grid-template-columns: 1fr; }
   .officials { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  .servicios__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
   .quick { gap: .8rem 1rem; }
@@ -503,6 +519,7 @@ table.data td:first-child { font-weight: 600; }
   .events__cta { flex-direction: column; align-items: flex-start; }
   .events__cta-btn { width: 100%; justify-content: center; }
   .events__filters { width: 100%; }
+  .servicios__grid { grid-template-columns: 1fr; }
 }
 
 .section-sub { font-size: 1.08rem; }
