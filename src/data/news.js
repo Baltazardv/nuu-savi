@@ -1,32 +1,65 @@
-// Actualidades / avisos del municipio. Reemplazar con contenido real.
+// Actualidades / noticias del municipio. Reemplazar con contenido real.
+// `cat` → newsCategories (color + ícono). `img` foto; `fallback` respaldo si `img` no existe.
+
+export const newsCategories = {
+  vida: { label: "Vida municipal", color: "#b5502f", icon: "landmark" },
+  obras: { label: "Obras públicas", color: "#14716a", icon: "building" },
+  cultura: { label: "Cultura", color: "#e6b23c", icon: "culture" },
+  ambiente: { label: "Medio ambiente", color: "#5f8b4c", icon: "tree" },
+};
+
+export function resolveNewsCat(n) {
+  if (n.cat && newsCategories[n.cat]) return { key: n.cat, ...newsCategories[n.cat] };
+  const t = (n.category || "").toLowerCase();
+  const found = Object.keys(newsCategories).find((k) => newsCategories[k].label.toLowerCase() === t || k === t);
+  const key = found || "vida";
+  return { key, ...newsCategories[key] };
+}
 
 export const news = [
   {
     id: 1,
+    cat: "vida",
+    day: "12", month: "AGO", year: "2025",
     date: "Publicado el 12 de agosto de 2025",
-    category: "Vida municipal",
     title: "Bienvenida al nuevo sitio del Municipio de Ñuu Savi",
     excerpt:
       "Estrenamos un espacio digital para acercar los servicios, la historia y la transparencia del municipio a toda la comunidad.",
     featured: true,
-    image: "/assets/fotos/asamblea.jpg",
+    img: "/assets/fotos/noticias/bienvenida.jpg",
+    fallback: "/assets/fotos/asamblea.jpg",
   },
   {
     id: 2,
+    cat: "obras",
+    day: "05", month: "AGO", year: "2025",
     date: "Publicado el 5 de agosto de 2025",
-    category: "Obras públicas",
     title: "Avanzan trabajos de mejora en caminos rurales",
     excerpt:
       "El ayuntamiento informa sobre las obras en marcha para mejorar la conectividad entre las comunidades del territorio.",
-    featured: false,
+    img: "/assets/fotos/noticias/obras.jpg",
+    fallback: "/assets/fotos/administracion.jpg",
   },
   {
     id: 3,
+    cat: "cultura",
+    day: "28", month: "JUL", year: "2025",
     date: "Publicado el 28 de julio de 2025",
-    category: "Cultura",
     title: "Convocatoria: talleres de lengua y cultura mixteca",
     excerpt:
       "Abrimos inscripciones para los talleres comunitarios dedicados a preservar la lengua Tu'un Savi y las tradiciones locales.",
-    featured: false,
+    img: "/assets/fotos/noticias/cultura.jpg",
+    fallback: "/assets/fotos/eventos/lengua.jpg",
+  },
+  {
+    id: 4,
+    cat: "ambiente",
+    day: "18", month: "JUL", year: "2025",
+    date: "Publicado el 18 de julio de 2025",
+    title: "Faena comunitaria de reforestación en Cerro Verde",
+    excerpt:
+      "Agradecemos a todas y todos los que participaron en esta jornada por nuestro territorio y las futuras generaciones.",
+    img: "/assets/fotos/noticias/reforestacion.jpg",
+    fallback: "/assets/fotos/eventos/reforestacion.jpg",
   },
 ];

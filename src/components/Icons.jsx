@@ -36,6 +36,8 @@ export const Icon = ({ name, size = 24, ...props }) => {
     calendar: <><rect x="4" y="5" width="16" height="15" rx="2" {...S} /><path d="M8 3v4M16 3v4M4 10h16" {...S} /></>,
     idCard: <><rect x="3" y="5" width="18" height="14" rx="2.2" {...S} /><circle cx="8.5" cy="11" r="2.2" {...S} /><path d="M5.2 16c.6-1.5 2-2.3 3.3-2.3s2.7.8 3.3 2.3" {...S} /><path d="M14.5 9.5h3.5M14.5 12.5h3.5M14.5 15.5h2.2" {...S} /></>,
     external: <><path d="M14 4h6v6" {...S} /><path d="M20 4l-8 8" {...S} /><path d="M19 14v4.5A1.5 1.5 0 0117.5 20h-11A1.5 1.5 0 015 18.5v-11A1.5 1.5 0 016.5 6H11" {...S} /></>,
+    megaphone: <><path d="M3 10.5v3a1 1 0 001 1h2.5l6 4V5.5l-6 4H4a1 1 0 00-1 1z" {...S} /><path d="M16.5 9.5a4 4 0 010 5" {...S} /><path d="M8.5 15v3.5a1.5 1.5 0 003 0V15" {...S} /></>,
+    send: <><path d="M21 4L3 11l7 2 2 7 9-16z" {...S} /><path d="M10 13l4-4" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>
