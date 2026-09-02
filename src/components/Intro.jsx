@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { asset } from "../lib/asset.js";
 
+// Acceso seguro a sessionStorage (puede lanzar en ventanas privadas o storage bloqueado).
+const seenIntro = () => { try { return sessionStorage.getItem("nuusavi_intro") === "1"; } catch { return false; } };
+const markIntro = () => { try { sessionStorage.setItem("nuusavi_intro", "1"); } catch {} };
+
 // Intro de video que se reproduce al entrar y hace fade al sitio.
 // Solo una vez por sesión (sessionStorage). Botón "Saltar" y fallback "Entrar".
 export default function Intro() {
-  const seen = typeof window !== "undefined" && sessionStorage.getItem("nuusavi_intro") === "1";
+  const seen = seenIntro();
   const [hidden, setHidden] = useState(seen);
   const [removed, setRemoved] = useState(seen);
   const [showEnter, setShowEnter] = useState(false);
@@ -21,7 +25,7 @@ export default function Intro() {
     const end = () => {
       setHidden(true);
       document.body.classList.remove("intro-lock");
-      sessionStorage.setItem("nuusavi_intro", "1");
+      markIntro();
       window.setTimeout(() => setRemoved(true), 950);
     };
 
@@ -67,7 +71,7 @@ export default function Intro() {
   const finish = () => {
     setHidden(true);
     document.body.classList.remove("intro-lock");
-    sessionStorage.setItem("nuusavi_intro", "1");
+    markIntro();
     window.setTimeout(() => setRemoved(true), 950);
   };
 
