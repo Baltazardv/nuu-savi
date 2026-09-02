@@ -80,15 +80,17 @@ export default function Gallery() {
       <div className="container">
         <span className="gallery__greca gallery__greca--center" aria-hidden="true" style={grecaUrl} />
         <div className="gallery__stats">
-          {stats.map((s) => (
-            <div className="gallery__stat" key={s.label}>
-              <span className="gallery__stat-icon"><Icon name={s.icon} size={24} /></span>
-              <div>
-                <strong>{s.num}</strong>
-                <span>{s.label}</span>
+          <div className="gallery__stats-list">
+            {stats.map((s) => (
+              <div className="gallery__stat" key={s.label}>
+                <span className="gallery__stat-icon"><Icon name={s.icon} size={24} /></span>
+                <div>
+                  <strong>{s.num}</strong>
+                  <span>{s.label}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
           <div className="gallery__cta">
             <p>La capacitación transforma el servicio y construye un mejor municipio.</p>
             <a href={site.facebook} target="_blank" rel="noopener" className="btn btn--solid">
