@@ -291,6 +291,19 @@ code { font-family: ui-monospace, Menlo, Consolas, monospace; background: var(--
 .territory__cat-text strong { font-family: var(--font-display); font-weight: 600; font-size: 1rem; color: var(--ink); }
 .territory__cat-text small { font-size: .78rem; color: var(--ink-soft); }
 
+/* Localizador de Guerrero (contorno del estado + pin del municipio) */
+.glocator { margin: 0 0 1.6rem; display: flex; align-items: center; gap: 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: .9rem 1.1rem; box-shadow: var(--shadow-soft); }
+.glocator__mapbox { flex-shrink: 0; width: 168px; }
+.glocator__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.glocator__state { fill: var(--primary-wash); stroke: var(--primary-deep); stroke-width: 3; stroke-linejoin: round; }
+.glocator__pin { fill: var(--terra); stroke: #fff; stroke-width: 3; }
+.glocator__halo { fill: var(--terra); opacity: .25; transform-origin: center; animation: glocatorpulse 2.2s ease-out infinite; }
+@keyframes glocatorpulse { 0% { transform: scale(.5); opacity: .45; } 70% { transform: scale(1.5); opacity: 0; } 100% { opacity: 0; } }
+.glocator__cap { font-size: .86rem; color: var(--ink-soft); line-height: 1.35; display: flex; gap: .5rem; }
+.glocator__cap strong { color: var(--primary-deep); }
+.glocator__dot { flex-shrink: 0; width: 12px; height: 12px; margin-top: 3px; border-radius: 50%; background: var(--terra); box-shadow: 0 0 0 3px rgba(181,80,47,.2); }
+@media (max-width: 420px) { .glocator { flex-direction: column; text-align: center; } .glocator__cap { flex-direction: column; align-items: center; gap: .3rem; } }
+
 /* Pestañas de capas cartográficas */
 .territory__layers { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.8rem; }
 .territory__layer { display: inline-flex; align-items: center; gap: .45rem; font-size: .86rem; font-weight: 600; color: var(--primary-deep); background: #fff; border: 1px solid var(--line); border-radius: 100px; padding: .5rem .9rem; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }

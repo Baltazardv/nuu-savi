@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "./Icons.jsx";
+import GuerreroLocator from "./GuerreroLocator.jsx";
 import { asset } from "../lib/asset.js";
 
 // Mapa interactivo de Google (sin API key) centrado en la cabecera municipal.
@@ -42,6 +43,8 @@ export default function Territory() {
             Consulta la ubicación y la cartografía oficial del municipio de Ñuu Savi:
             relieve, clima, hidrología y uso de suelo y vegetación.
           </p>
+
+          <GuerreroLocator />
 
           <ul className="territory__layers">
             {layers.map((l) => (
