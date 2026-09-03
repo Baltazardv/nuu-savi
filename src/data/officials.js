@@ -86,7 +86,7 @@ export const officials = [
     name: "Felipe García Camilo",
     title: "Regidor de Desarrollo Rural y Ecología, Medio Ambiente y Recursos Naturales",
     role: "Regiduría",
-    photo: null, // fotografía pendiente de proporcionar por el municipio
+    photo: "/assets/fotos/cabildo/desarrollo-rural.jpg",
     formacion:
       "Ingeniero Agrónomo con especialidad en Fitotecnia, egresado del Colegio Superior Agropecuario del Estado de Guerrero (SADER-CSAEGRO), generación 2017.",
     comunitarios: [
