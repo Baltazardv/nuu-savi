@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Icon from "./Icons.jsx";
 import { asset } from "../lib/asset.js";
 
@@ -6,16 +7,24 @@ const MAP_QUERY = "Coapinola, Guerrero, México";
 const MAP_EMBED = "https://maps.google.com/maps?q=" + encodeURIComponent(MAP_QUERY) + "&z=12&hl=es&output=embed";
 const MAP_LINK = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(MAP_QUERY);
 
-// Categorías de puntos de interés del territorio.
-const categories = [
-  { key: "salud", label: "Salud", desc: "Centros de salud y hospitales", icon: "health", color: "#b5502f" },
-  { key: "educacion", label: "Educación", desc: "Escuelas y centros educativos", icon: "book", color: "#2f8f86" },
-  { key: "cultura", label: "Cultura", desc: "Espacios y centros culturales", icon: "culture", color: "#e6b23c" },
-  { key: "servicios", label: "Servicios públicos", desc: "Edificios y oficinas municipales", icon: "landmark", color: "#14716a" },
-  { key: "naturaleza", label: "Naturaleza", desc: "Cerros, ríos y áreas naturales", icon: "tree", color: "#5f8b4c" },
+// Capas del mapa: Ubicación (mapa interactivo) + cartografías oficiales del municipio.
+const layers = [
+  { key: "ubicacion", label: "Ubicación", icon: "marker", type: "map",
+    note: "Mapa interactivo · cabecera municipal de Coapinola, Guerrero. Arrastra y haz zoom para explorar." },
+  { key: "relieve", label: "Relieve", icon: "mountain", img: "/assets/fotos/cartografia/relieve.jpg",
+    note: "Cartografía de relieve del municipio de Ñuu Savi." },
+  { key: "clima", label: "Clima", icon: "cloudRain", img: "/assets/fotos/cartografia/clima.jpg",
+    note: "Cartografía de clima del municipio de Ñuu Savi." },
+  { key: "hidrologia", label: "Hidrología", icon: "drop", img: "/assets/fotos/cartografia/hidrologia.jpg",
+    note: "Cartografía de hidrología del municipio de Ñuu Savi." },
+  { key: "uso", label: "Uso de suelo y vegetación", icon: "leaf", img: "/assets/fotos/cartografia/uso-suelo-vegetacion.jpg",
+    note: "Cartografía de uso de suelo y vegetación del municipio de Ñuu Savi." },
 ];
 
 export default function Territory() {
+  const [active, setActive] = useState("ubicacion");
+  const layer = layers.find((l) => l.key === active) || layers[0];
+
   return (
     <section className="section territory" id="territorio">
       {/* Motivos de lluvia (Ñuu Savi = pueblo de la lluvia) */}
@@ -26,24 +35,26 @@ export default function Territory() {
         <div className="territory__text">
           <span className="territory__greca" aria-hidden="true" style={{ backgroundImage: `url(${asset("/assets/fotos/greca.png")})` }} />
           <h2 className="h2">Explora el territorio</h2>
-          <p className="territory__kicker">Tu mapa interactivo</p>
+          <p className="territory__kicker">Mapa y cartografía del municipio</p>
           <span className="territory__divider" aria-hidden="true" />
 
           <p className="territory__lead">
-            Localiza en un clic los equipamientos, servicios y lugares clave del municipio de
-            Ñuu Savi.
+            Consulta la ubicación y la cartografía oficial del municipio de Ñuu Savi:
+            relieve, clima, hidrología y uso de suelo y vegetación.
           </p>
 
-          <ul className="territory__legend">
-            {categories.map((c) => (
-              <li className="territory__cat" key={c.key}>
-                <span className="territory__cat-icon" style={{ color: c.color, background: `${c.color}1a` }}>
-                  <Icon name={c.icon} size={22} />
-                </span>
-                <span className="territory__cat-text">
-                  <strong>{c.label}</strong>
-                  <small>{c.desc}</small>
-                </span>
+          <ul className="territory__layers">
+            {layers.map((l) => (
+              <li key={l.key}>
+                <button
+                  type="button"
+                  className={"territory__layer" + (active === l.key ? " is-active" : "")}
+                  onClick={() => setActive(l.key)}
+                  aria-pressed={active === l.key}
+                >
+                  <span className="territory__layer-icon"><Icon name={l.icon} size={18} /></span>
+                  {l.label}
+                </button>
               </li>
             ))}
           </ul>
@@ -59,16 +70,34 @@ export default function Territory() {
           <span className="territory__leaf territory__leaf--2" aria-hidden="true"><Icon name="leaf" size={44} /></span>
 
           <figure className="territory__map-card">
-            <iframe
-              className="territory__map-frame"
-              title="Mapa interactivo del Municipio de Ñuu Savi (Coapinola, Guerrero)"
-              src={MAP_EMBED}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            {layer.type === "map" ? (
+              <iframe
+                className="territory__map-frame"
+                title="Mapa interactivo del Municipio de Ñuu Savi (Coapinola, Guerrero)"
+                src={MAP_EMBED}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            ) : (
+              <a
+                className="territory__map-imglink"
+                href={asset(layer.img)}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Ver la cartografía en tamaño completo"
+              >
+                <img
+                  className="territory__map-img"
+                  src={asset(layer.img)}
+                  alt={`Cartografía: ${layer.label} — Municipio de Ñuu Savi`}
+                  loading="lazy"
+                />
+                <span className="territory__map-expand"><Icon name="expand" size={16} /> Ampliar</span>
+              </a>
+            )}
           </figure>
-          <figcaption className="territory__note">Mapa interactivo · cabecera municipal de Coapinola, Guerrero. Arrastra y haz zoom para explorar.</figcaption>
+          <figcaption className="territory__note">{layer.note}</figcaption>
         </div>
       </div>
     </section>

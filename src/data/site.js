@@ -39,9 +39,8 @@ export const profiles = [
 // `pending: true` mientras el municipio confirma el número real.
 export const emergency = [
   { label: "Emergencias (911)", phone: "911", href: "tel:911", icon: "shield" },
-  { label: "Protección Civil", phone: "Por confirmar", href: null, icon: "info", pending: true },
-  { label: "Seguridad Pública Municipal", phone: "Por confirmar", href: null, icon: "shield", pending: true },
-  { label: "Bomberos", phone: "Por confirmar", href: null, icon: "info", pending: true },
+  { label: "Seguridad Pública Municipal", phone: "744 321 7801", href: "tel:7443217801", icon: "shield" },
+  { label: "Protección Civil Municipal", phone: "744 321 7801", href: "tel:7443217801", icon: "warning" },
 ];
 
 // Plataformas oficiales de transparencia (nacional y estatal).

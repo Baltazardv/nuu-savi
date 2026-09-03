@@ -33,6 +33,8 @@ export default function Transparencia() {
       />
       <section className="section">
         <div className="container">
+          <p className="welcome-line">Bienvenidos al portal de Transparencia del Ayuntamiento de Ñuu Savi.</p>
+
           <div className="cards cards--3" style={{ marginBottom: "3rem" }}>
             <Link to="/contratos" className="card">
               <span className="card__icon"><Icon name="doc" size={26} /></span>

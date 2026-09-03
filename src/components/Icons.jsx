@@ -46,6 +46,9 @@ export const Icon = ({ name, size = 24, ...props }) => {
     clock: <><circle cx="12" cy="12" r="9" {...S} /><path d="M12 7v5l3.5 2" {...S} /></>,
     warning: <><path d="M12 4l9 15.5H3L12 4z" {...S} /><path d="M12 10v4M12 17.5h0" {...S} /></>,
     chart: <><path d="M4 20V4M4 20h16" {...S} /><path d="M8 20v-6M12 20V9M16 20v-9M20 20v-4" {...S} /></>,
+    drop: <><path d="M12 3s6 6.4 6 10.5a6 6 0 01-12 0C6 9.4 12 3 12 3z" {...S} /><path d="M9.5 14a2.5 2.5 0 002 2.4" {...S} /></>,
+    layers: <><path d="M12 3l9 5-9 5-9-5 9-5z" {...S} /><path d="M3 13l9 5 9-5" {...S} /></>,
+    expand: <><path d="M4 9V4h5M20 15v5h-5M4 4l6 6M20 20l-6-6" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>
