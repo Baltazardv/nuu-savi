@@ -13,8 +13,10 @@ function AboutStrip() {
   return (
     <section className="section about" id="sobre">
       <div className="container about__inner">
-        <p className="kicker">Comunidad de Ñuu Savi</p>
+        <p className="kicker">Municipio de Ñuu Savi</p>
         <h2 className="h2 about__title">Pueblo de la lluvia</h2>
+        {/* Reseña oficial pendiente de proporcionar por el municipio (punto 13).
+            Mientras tanto se muestra este texto verificado con datos oficiales. */}
         <p className="about__text">
           El municipio de <strong>Ñuu Savi</strong> —del mixteco <em>Ñuu</em> ‘pueblo’ y
           <em> Savi</em> ‘lluvia’— es uno de los 85 municipios del estado de Guerrero.

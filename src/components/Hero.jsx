@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
 
       <div className="container hero__content">
-        <p className="hero__eyebrow">Comunidad de</p>
+        <p className="hero__eyebrow">Municipio de</p>
         <h1 className="hero__title">Ñuu Savi</h1>
         <p className="hero__sub">Pueblo de la lluvia · Guerrero, México</p>
 

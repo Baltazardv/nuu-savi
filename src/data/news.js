@@ -1,11 +1,19 @@
 // Actualidades / noticias del municipio. Reemplazar con contenido real.
 // `cat` → newsCategories (color + ícono). `img` foto; `fallback` respaldo si `img` no existe.
+//
+// VIDEO (opcional): una nota puede llevar video además de foto. Agrega:
+//   video: "https://www.youtube.com/watch?v=XXXX"   // YouTube, o
+//   video: "https://www.facebook.com/.../videos/XXXX/"  // Facebook, o
+//   video: "/assets/fotos/noticias/mi-video.mp4"    // archivo local (mp4)
+// El reproductor se detecta automáticamente. El video se muestra en la nota destacada
+// y las notas de la lista muestran un botón de reproducción.
 
 export const newsCategories = {
   vida: { label: "Vida municipal", color: "#b5502f", icon: "landmark" },
   obras: { label: "Obras públicas", color: "#14716a", icon: "building" },
   cultura: { label: "Cultura", color: "#e6b23c", icon: "culture" },
   ambiente: { label: "Medio ambiente", color: "#5f8b4c", icon: "tree" },
+  registro: { label: "Registro civil", color: "#5b6cb5", icon: "idCard" },
 };
 
 export function resolveNewsCat(n) {
@@ -61,5 +69,18 @@ export const news = [
       "Agradecemos a todas y todos los que participaron en esta jornada por nuestro territorio y las futuras generaciones.",
     img: "/assets/fotos/noticias/reforestacion.jpg",
     fallback: "/assets/fotos/eventos/reforestacion.jpg",
+  },
+  {
+    id: 5,
+    cat: "registro",
+    day: "01", month: "SEP", year: "2025",
+    date: "Publicado el 1 de septiembre de 2025",
+    title: "Registro Civil: horarios y trámites disponibles",
+    excerpt:
+      "La oficina del Registro Civil del municipio informa los horarios de atención y los trámites de actas de nacimiento, matrimonio y defunción. (Información por confirmar con el municipio.)",
+    img: "/assets/fotos/administracion.jpg",
+    fallback: "/assets/fotos/asamblea.jpg",
+    // Para agregar un video a esta nota:
+    // video: "https://www.facebook.com/61550486085759/videos/XXXXXXXX/",
   },
 ];

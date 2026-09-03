@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "../data/site.js";
 import { fbPosts, fbHighlights } from "../data/facebook.js";
 import { asset } from "../lib/asset.js";
@@ -60,6 +60,8 @@ export default function FacebookFeed() {
   const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.png")})` };
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const feedRef = useRef(null);
+  const [width, setWidth] = useState(500);
 
   // Si el widget no confirma carga en unos segundos (Facebook bloqueado), mostramos el respaldo.
   useEffect(() => {
@@ -67,10 +69,25 @@ export default function FacebookFeed() {
     return () => window.clearTimeout(t);
   }, [loaded]);
 
+  // El Page Plugin usa ancho fijo (180–500). Lo ajustamos al contenedor para que no se corte en móvil.
+  useEffect(() => {
+    const el = feedRef.current;
+    if (!el) return;
+    const measure = () => {
+      const w = Math.min(500, Math.max(180, Math.floor(el.clientWidth)));
+      setWidth((prev) => (Math.abs(prev - w) > 4 ? w : prev));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   const pluginSrc =
     "https://www.facebook.com/plugins/page.php?href=" +
     encodeURIComponent(PAGE_URL) +
-    "&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&lazy=true";
+    "&tabs=timeline&width=" + width +
+    "&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&lazy=true";
 
   return (
     <section className="section facebook" id="facebook">
@@ -96,15 +113,21 @@ export default function FacebookFeed() {
           </ul>
         </div>
 
-        <div className="facebook__feed">
+        <div className="facebook__feed" ref={feedRef}>
           {!failed ? (
             <div className="facebook__plugin">
+              {!loaded && (
+                <div className="facebook__loading" aria-hidden="true">
+                  <span className="facebook__spinner"><Icon name="facebook" size={26} /></span>
+                  <p>Cargando publicaciones de Facebook…</p>
+                </div>
+              )}
               <iframe
                 title="Publicaciones de la página de Facebook del Municipio de Ñuu Savi"
                 src={pluginSrc}
-                width="500"
+                width={width}
                 height="640"
-                style={{ border: "none", overflow: "hidden" }}
+                style={{ border: "none", overflow: "hidden", width: "100%", maxWidth: width }}
                 scrolling="no"
                 frameBorder="0"
                 allowFullScreen={true}

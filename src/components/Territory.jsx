@@ -1,7 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import Icon from "./Icons.jsx";
 import { asset } from "../lib/asset.js";
+
+// Mapa interactivo de Google (sin API key) centrado en la cabecera municipal.
+const MAP_QUERY = "Coapinola, Guerrero, México";
+const MAP_EMBED = "https://maps.google.com/maps?q=" + encodeURIComponent(MAP_QUERY) + "&z=12&hl=es&output=embed";
+const MAP_LINK = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(MAP_QUERY);
 
 // Categorías de puntos de interés del territorio.
 const categories = [
@@ -12,20 +15,7 @@ const categories = [
   { key: "naturaleza", label: "Naturaleza", desc: "Cerros, ríos y áreas naturales", icon: "tree", color: "#5f8b4c" },
 ];
 
-// Pines de ejemplo sobre el mapa de respaldo (x,y en coordenadas del viewBox 500x380).
-const pins = [
-  { x: 205, y: 150, cat: "servicios" },
-  { x: 285, y: 128, cat: "educacion" },
-  { x: 245, y: 210, cat: "salud" },
-  { x: 325, y: 188, cat: "cultura" },
-  { x: 350, y: 258, cat: "naturaleza" },
-  { x: 178, y: 232, cat: "educacion" },
-];
-const colorOf = (key) => (categories.find((c) => c.key === key) || {}).color || "#14716a";
-
 export default function Territory() {
-  const [hasMapImg, setHasMapImg] = useState(true);
-
   return (
     <section className="section territory" id="territorio">
       {/* Motivos de lluvia (Ñuu Savi = pueblo de la lluvia) */}
@@ -58,9 +48,9 @@ export default function Territory() {
             ))}
           </ul>
 
-          <Link to="/historia" className="btn btn--solid">
-            Ver el mapa interactivo <Icon name="arrowRight" size={18} />
-          </Link>
+          <a href={MAP_LINK} target="_blank" rel="noopener noreferrer" className="btn btn--solid">
+            Ver en Google Maps <Icon name="external" size={17} />
+          </a>
         </div>
 
         <div className="territory__mapwrap">
@@ -69,42 +59,16 @@ export default function Territory() {
           <span className="territory__leaf territory__leaf--2" aria-hidden="true"><Icon name="leaf" size={44} /></span>
 
           <figure className="territory__map-card">
-            {hasMapImg ? (
-              <img
-                src={asset("/assets/fotos/mapa-territorio.png")}
-                alt="Mapa del territorio del Municipio de Ñuu Savi"
-                onError={() => setHasMapImg(false)}
-              />
-            ) : (
-              <svg className="territory__map-svg" viewBox="0 0 500 380" role="img" aria-label="Mapa ilustrativo del territorio de Ñuu Savi">
-                <defs>
-                  <linearGradient id="terr" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stopColor="#2f7169" />
-                    <stop offset="1" stopColor="#124a43" />
-                  </linearGradient>
-                </defs>
-                {/* Contorno del municipio */}
-                <path d="M120 90 C180 58 300 60 362 96 C418 128 440 186 418 236 C402 280 348 312 288 322 C228 332 158 316 120 282 C86 252 72 192 88 146 C98 116 106 100 120 90 Z" fill="url(#terr)" stroke="#0e4f49" strokeWidth="3" />
-                {/* Curvas de nivel (topográficas) */}
-                <g fill="none" stroke="#ffffff" strokeOpacity="0.16" strokeWidth="1.4">
-                  <path d="M150 130 C210 108 300 112 350 145 C392 172 402 214 384 250" />
-                  <path d="M170 175 C220 158 300 162 340 190 C368 210 372 240 356 268" />
-                  <path d="M195 220 C235 208 295 212 325 232" />
-                </g>
-                {/* Río */}
-                <path d="M150 100 C176 150 214 176 232 226 C246 264 280 286 322 300" fill="none" stroke="#8fd0e0" strokeOpacity="0.7" strokeWidth="4" strokeLinecap="round" />
-                {/* Pines por categoría */}
-                {pins.map((p, i) => (
-                  <g key={i} transform={`translate(${p.x},${p.y})`}>
-                    <ellipse cx="0" cy="2" rx="9" ry="3" fill="rgba(0,0,0,.25)" />
-                    <path d="M0 0 C-8 -10 -12 -15 -12 -21 A12 12 0 1 1 12 -21 C12 -15 8 -10 0 0 Z" fill={colorOf(p.cat)} stroke="#fff" strokeWidth="2" />
-                    <circle cx="0" cy="-21" r="4.5" fill="#fff" />
-                  </g>
-                ))}
-              </svg>
-            )}
+            <iframe
+              className="territory__map-frame"
+              title="Mapa interactivo del Municipio de Ñuu Savi (Coapinola, Guerrero)"
+              src={MAP_EMBED}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </figure>
-          <figcaption className="territory__note">Mapa ilustrativo · se sustituirá por la cartografía oficial del municipio.</figcaption>
+          <figcaption className="territory__note">Mapa interactivo · cabecera municipal de Coapinola, Guerrero. Arrastra y haz zoom para explorar.</figcaption>
         </div>
       </div>
     </section>

@@ -53,10 +53,16 @@ const staticEntries = [
     text: "facebook redes sociales siguenos pagina oficial",
   },
   {
-    title: "Servicios en línea y trámites",
+    title: "Ventanilla digital — trámites y servicios",
     section: "Trámites",
     to: "/#servicios",
-    text: "servicios en linea tramites gaceta municipal transparencia gobierno de mexico gob.mx",
+    text: "ventanilla digital servicios en linea tramites gaceta municipal transparencia gobierno de mexico gob.mx",
+  },
+  {
+    title: "Conociendo Ñuu Savi",
+    section: "Página",
+    to: "/conociendo",
+    text: "conociendo nuu savi pueblo de la lluvia lengua tu'un savi mixteco cultura territorio coapinola cabecera localidades como llegar mapa geografia",
   },
   {
     title: "Imprime tu CURP",

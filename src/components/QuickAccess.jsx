@@ -3,11 +3,11 @@ import Icon from "./Icons.jsx";
 
 // Accesos rápidos del hero (sobre la foto). Cada uno con su barra de color.
 const items = [
-  { label: "Comunidad", to: "#actualidades", icon: "people", color: "#e0762e", anchor: true },
+  { label: "Municipio", to: "/conociendo", icon: "people", color: "#e0762e" },
   { label: "Ubicación", to: "#territorio", icon: "marker", color: "#2f8f86", anchor: true },
-  { label: "Servicios", to: "#capacitaciones", icon: "hands", color: "#d6457f", anchor: true },
+  { label: "Ventanilla", to: "#servicios", icon: "doc", color: "#7b5ea7", anchor: true },
   { label: "Gobierno", to: "/cabildo", icon: "building", color: "#e6b23c" },
-  { label: "Trámites", to: "#servicios", icon: "doc", color: "#7b5ea7", anchor: true },
+  { label: "Actualidades", to: "#actualidades", icon: "megaphone", color: "#d6457f", anchor: true },
 ];
 
 // Desplazamiento suave a una sección, compensando el header fijo.

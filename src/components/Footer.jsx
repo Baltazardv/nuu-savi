@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { site, nav } from "../data/site.js";
+import { site, nav, emergency } from "../data/site.js";
 import { asset } from "../lib/asset.js";
 import Icon from "./Icons.jsx";
 
@@ -8,6 +8,32 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__greca" aria-hidden="true" />
+
+      {/* Punto 16: números de emergencia 24 horas */}
+      <div className="emergency">
+        <div className="container emergency__inner">
+          <div className="emergency__head">
+            <span className="emergency__icon"><Icon name="warning" size={22} /></span>
+            <div>
+              <strong>Números de emergencia</strong>
+              <span>Atención 24 horas</span>
+            </div>
+          </div>
+          <ul className="emergency__list">
+            {emergency.map((e) => (
+              <li key={e.label} className={"emergency__item" + (e.pending ? " is-pending" : "")}>
+                <span className="emergency__label"><Icon name={e.icon} size={15} /> {e.label}</span>
+                {e.href ? (
+                  <a href={e.href} className="emergency__phone"><Icon name="phone" size={14} /> {e.phone}</a>
+                ) : (
+                  <span className="emergency__phone emergency__phone--pending">{e.phone}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <div className="container footer__grid">
         <div className="footer__brand">
           <img src={asset("/assets/escudo-ayuntamiento.png")} alt="Escudo del Ayuntamiento de Ñuu Savi" />

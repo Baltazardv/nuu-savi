@@ -42,6 +42,10 @@ export const Icon = ({ name, size = 24, ...props }) => {
     thumbsUp: <><path d="M7 10.5V20H4.5a.5.5 0 01-.5-.5v-9a.5.5 0 01.5-.5H7z" {...S} /><path d="M7 10.5l3.5-6.2a1.8 1.8 0 013.4 1.2L13 9h5.2a1.8 1.8 0 011.77 2.13l-1.1 6A1.8 1.8 0 0117.1 20H7" {...S} /></>,
     comment: <path d="M21 11.5a7.5 7.5 0 01-10.7 6.8L4 20l1.7-5.3A7.5 7.5 0 1121 11.5z" {...S} />,
     share: <><circle cx="6" cy="12" r="2.2" {...S} /><circle cx="17" cy="6" r="2.2" {...S} /><circle cx="17" cy="18" r="2.2" {...S} /><path d="M8 11l7-4M8 13l7 4" {...S} /></>,
+    play: <><circle cx="12" cy="12" r="9" {...S} /><path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor" stroke="none" /></>,
+    clock: <><circle cx="12" cy="12" r="9" {...S} /><path d="M12 7v5l3.5 2" {...S} /></>,
+    warning: <><path d="M12 4l9 15.5H3L12 4z" {...S} /><path d="M12 10v4M12 17.5h0" {...S} /></>,
+    chart: <><path d="M4 20V4M4 20h16" {...S} /><path d="M8 20v-6M12 20V9M16 20v-9M20 20v-4" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>

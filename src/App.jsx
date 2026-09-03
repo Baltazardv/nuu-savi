@@ -4,6 +4,7 @@ import Intro from "./components/Intro.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
+import Conociendo from "./pages/Conociendo.jsx";
 import Cabildo from "./pages/Cabildo.jsx";
 import Historia from "./pages/Historia.jsx";
 import Transparencia from "./pages/Transparencia.jsx";
@@ -29,6 +30,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/conociendo" element={<Conociendo />} />
           <Route path="/cabildo" element={<Cabildo />} />
           <Route path="/historia" element={<Historia />} />
           <Route path="/transparencia" element={<Transparencia />} />

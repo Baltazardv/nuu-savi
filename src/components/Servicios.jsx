@@ -32,7 +32,7 @@ export default function Servicios() {
       <div className="container">
         <div className="section-head--center" style={{ textAlign: "center", marginBottom: "2.5rem" }}>
           <p className="kicker">Trámites y servicios</p>
-          <h2 className="h2">Servicios en línea</h2>
+          <h2 className="h2">Ventanilla digital</h2>
           <p className="section-sub" style={{ maxWidth: "58ch", margin: "1rem auto 0", color: "var(--ink-soft)" }}>
             Realiza tus trámites de forma rápida. Los enlaces de CURP y Acta de Nacimiento te
             llevan al sitio oficial del Gobierno de México.
