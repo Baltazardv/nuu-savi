@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { site, nav, emergency } from "../data/site.js";
+import { GUERRERO_PATH, GUERRERO_PIN, GUERRERO_VIEWBOX } from "../data/guerrero.js";
 import { asset } from "../lib/asset.js";
 import Icon from "./Icons.jsx";
 
@@ -61,15 +62,12 @@ export default function Footer() {
 
         <div className="footer__locator">
           <span className="footer__locator-title">¿Dónde estamos?</span>
-          <div className="footer__map" aria-hidden="true">
-            <svg viewBox="0 0 220 150" preserveAspectRatio="xMidYMid meet">
-              <path
-                className="footer__mx"
-                d="M20,44 C34,36 52,40 66,34 C78,29 88,20 104,24 C116,27 120,40 134,44 C150,48 168,42 182,52 C196,62 200,78 190,92 C182,103 168,104 160,114 C153,123 152,136 142,138 C133,140 128,130 120,124 C110,117 98,120 90,112 C82,104 84,92 76,86 C66,78 50,82 40,74 C28,64 24,54 20,44 Z"
-              />
+          <div className="footer__map">
+            <svg viewBox={GUERRERO_VIEWBOX} preserveAspectRatio="xMidYMid meet" role="img" aria-label="Ubicación de Ñuu Savi en el estado de Guerrero">
+              <path className="footer__mx" d={GUERRERO_PATH} />
               <g className="footer__pin">
-                <circle cx="96" cy="104" r="5.5" />
-                <circle cx="96" cy="104" r="11" className="footer__pin-halo" />
+                <circle cx={GUERRERO_PIN.x} cy={GUERRERO_PIN.y} r="15" />
+                <circle cx={GUERRERO_PIN.x} cy={GUERRERO_PIN.y} r="28" className="footer__pin-halo" />
               </g>
             </svg>
             <span className="footer__here"><Icon name="marker" size={14} /> Ñuu Savi · Guerrero</span>

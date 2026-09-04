@@ -495,9 +495,10 @@ a.service:hover, .service:not(.service--static):hover { transform: translateY(-6
 .footer__hours { padding: .1rem 0 !important; font-size: .9rem; }
 .footer__locator-title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: #fff; display: block; margin-bottom: 1rem; }
 .footer__map { position: relative; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius-sm); padding: 1rem; }
-.footer__mx { fill: rgba(255,255,255,.12); stroke: rgba(255,255,255,.4); stroke-width: 1.5; }
+.footer__map svg { display: block; width: 100%; height: auto; overflow: visible; }
+.footer__mx { fill: rgba(255,255,255,.12); stroke: rgba(255,255,255,.45); stroke-width: 4; stroke-linejoin: round; }
 .footer__pin circle { fill: var(--accent); }
-.footer__pin-halo { fill: none !important; stroke: var(--accent); stroke-width: 1.5; opacity: .5; animation: halo 2.2s ease-out infinite; transform-origin: 96px 104px; }
+.footer__pin-halo { fill: none !important; stroke: var(--accent); stroke-width: 4; opacity: .5; animation: halo 2.2s ease-out infinite; transform-origin: 456.3px 292.5px; }
 @keyframes halo { 0% { transform: scale(.6); opacity: .7; } 100% { transform: scale(1.8); opacity: 0; } }
 .footer__here { display: inline-flex; align-items: center; gap: .35rem; margin-top: .6rem; font-size: .85rem; color: #fff; font-weight: 600; }
 .footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .6rem; padding: 1.4rem 0; border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem; color: rgba(238,246,245,.6); }
