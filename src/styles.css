@@ -633,8 +633,17 @@ table.data td:first-child { font-weight: 600; }
   .pill-btn span { display: none; }
   .pill-btn { padding: .6rem; }
   .nav-toggle { display: flex; }
-  .territory__grid { grid-template-columns: 1fr; }
-  .territory__mapwrap { order: -1; }
+  .territory__grid { display: flex; flex-direction: column; gap: 0; }
+  .territory__text { display: contents; }
+  .territory__greca { order: 1; }
+  .territory__text .h2 { order: 2; }
+  .territory__kicker { order: 3; }
+  .territory__divider { order: 4; }
+  .territory__lead { order: 5; }
+  .glocator { order: 6; }
+  .territory__mapwrap { order: 7; margin: .4rem 0 1.1rem; }
+  .territory__layers { order: 8; margin-bottom: 1rem; }
+  .territory__text .btn { order: 9; }
   .news__grid { grid-template-columns: 1fr; }
   .cards--3 { grid-template-columns: 1fr; }
   .officials { grid-template-columns: repeat(2, 1fr); }
