@@ -1,12 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
-import { contractYears, contractsByYear } from "../data/contracts.js";
+import { contractYears, contractsByYear as fallbackByYear } from "../data/contracts.js";
+import { getContratos } from "../lib/wp.js";
 import Icon from "../components/Icons.jsx";
 import { asset } from "../lib/asset.js";
 
 export default function Contratos() {
   const [year, setYear] = useState(contractYears[0]);
-  const list = contractsByYear[year] || [];
+  const [byYear, setByYear] = useState(fallbackByYear);
+
+  useEffect(() => {
+    let alive = true;
+    getContratos(100).then((d) => {
+      if (!alive || !d || !d.length) return;
+      const grouped = {};
+      contractYears.forEach((y) => { grouped[y] = []; });
+      d.forEach((c) => { if (c.year && grouped[c.year]) grouped[c.year].push(c); });
+      setByYear(grouped);
+    });
+    return () => { alive = false; };
+  }, []);
+
+  const list = byYear[year] || [];
 
   return (
     <>
@@ -20,7 +35,7 @@ export default function Contratos() {
           {/* Punto 11: contratos divididos por año (2024–2026) */}
           <div className="year-tabs" role="tablist" aria-label="Filtrar contratos por año">
             {contractYears.map((y) => {
-              const count = (contractsByYear[y] || []).length;
+              const count = (byYear[y] || []).length;
               return (
                 <button
                   key={y}

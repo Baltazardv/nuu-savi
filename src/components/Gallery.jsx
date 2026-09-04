@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Icon from "./Icons.jsx";
 import { asset } from "../lib/asset.js";
 import { site } from "../data/site.js";
+import { getCapacitaciones } from "../lib/wp.js";
 
 const highlights = [
   { icon: "school", label: "Capacitación continua" },
@@ -17,7 +18,7 @@ const stats = [
   { icon: "landmark", num: "12", label: "Áreas del gobierno fortalecidas" },
 ];
 
-const photos = [
+const fallbackPhotos = [
   { src: "/assets/fotos/capacitacion-1.jpg", tag: "Taller", cap: "Manual de Organización de la Administración Pública Municipal" },
   { src: "/assets/fotos/capacitacion-2.jpg", tag: "Capacitación", cap: "Formación continua de las y los servidores públicos" },
   { src: "/assets/fotos/reunion-1.jpg", tag: "Reunión", cap: "Reunión de trabajo del cabildo municipal" },
@@ -30,7 +31,14 @@ const photos = [
 
 export default function Gallery() {
   const [index, setIndex] = useState(-1);
+  const [photos, setPhotos] = useState(fallbackPhotos);
   const open = index >= 0;
+
+  useEffect(() => {
+    let alive = true;
+    getCapacitaciones(12).then((d) => { if (alive && d && d.length) setPhotos(d); });
+    return () => { alive = false; };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -45,7 +53,7 @@ export default function Gallery() {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [open]);
+  }, [open, photos.length]);
 
   const grecaUrl = { backgroundImage: `url(${asset("/assets/fotos/greca.png")})` };
 

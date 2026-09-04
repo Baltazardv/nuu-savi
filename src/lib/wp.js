@@ -57,12 +57,20 @@ function formatFecha(iso) {
   return `Publicado el ${d.getDate()} de ${["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"][d.getMonth()]} de ${d.getFullYear()}`;
 }
 
+// Normaliza el valor de un campo "file" de ACF (puede venir como URL o como objeto).
+function fileUrl(v) {
+  if (!v) return "";
+  if (typeof v === "string") return v;
+  return v.url || "";
+}
+
 // Convierte un post de WP (?_embed) al formato que usa el componente News.
 export function mapPost(raw, index = 0) {
   const embedded = raw._embedded || {};
   const media = embedded["wp:featuredmedia"] && embedded["wp:featuredmedia"][0];
   const terms = (embedded["wp:term"] && embedded["wp:term"].flat()) || [];
   const category = terms.find((t) => t && t.taxonomy === "category");
+  const acf = raw.acf || {};
   return {
     id: raw.id,
     date: formatFecha(raw.date),
@@ -70,8 +78,34 @@ export function mapPost(raw, index = 0) {
     title: stripHtml(raw.title && raw.title.rendered),
     excerpt: stripHtml(raw.excerpt && raw.excerpt.rendered).replace(/\s*\[…\]$/, "…"),
     image: media ? media.source_url : null,
+    video: acf.video || null,
     link: raw.link,
     featured: index === 0,
+  };
+}
+
+// Convierte una "capacitación" (CPT con imagen destacada + campo etiqueta) al formato de Gallery.
+export function mapCapacitacion(raw) {
+  const embedded = raw._embedded || {};
+  const media = embedded["wp:featuredmedia"] && embedded["wp:featuredmedia"][0];
+  const acf = raw.acf || {};
+  return {
+    id: raw.id,
+    src: media ? media.source_url : null,
+    tag: acf.etiqueta || "",
+    cap: stripHtml(raw.title && raw.title.rendered),
+  };
+}
+
+// Convierte un "contrato" (CPT con campos ACF) al formato de la página Contratos.
+export function mapContrato(raw) {
+  const acf = raw.acf || {};
+  return {
+    id: acf.numero || String(raw.id),
+    year: parseInt(acf.anio, 10) || null,
+    label: stripHtml(raw.title && raw.title.rendered) || "Obra pública municipal",
+    contrato: fileUrl(acf.archivo_contrato),
+    insumos: fileUrl(acf.archivo_insumos),
   };
 }
 
@@ -105,4 +139,18 @@ export async function getEventos(perPage = 8) {
   const data = await wpFetch(`evento?_embed&per_page=${perPage}&status=publish`);
   if (!Array.isArray(data) || data.length === 0) return null;
   return data.map(mapEvent);
+}
+
+export async function getCapacitaciones(perPage = 12) {
+  // Requiere el tipo "capacitacion" (CPT UI + ACF, campo etiqueta) + imagen destacada.
+  const data = await wpFetch(`capacitacion?_embed&per_page=${perPage}&status=publish`);
+  if (!Array.isArray(data) || data.length === 0) return null;
+  return data.map(mapCapacitacion).filter((c) => c.src);
+}
+
+export async function getContratos(perPage = 100) {
+  // Requiere el tipo "contrato" (CPT UI + ACF: anio, numero, archivo_contrato, archivo_insumos).
+  const data = await wpFetch(`contrato?_embed&per_page=${perPage}&status=publish`);
+  if (!Array.isArray(data) || data.length === 0) return null;
+  return data.map(mapContrato);
 }
