@@ -6,6 +6,8 @@ export const site = {
   tagline: "Pueblo de la lluvia",
   phone: "745 119 3790",
   phoneHref: "tel:7451193790",
+  // Correo de contacto — confirmar/crear la cuenta real en cPanel antes de la entrega.
+  email: "contacto@nuu-savi.gob.mx",
   address: {
     line1: "Ayuntamiento de Ñuu Savi, Gro.",
     line2: "C.P. 39210, Coapinola, Guerrero",
