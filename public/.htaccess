@@ -28,3 +28,9 @@
     Header set Cache-Control "no-cache, no-store, must-revalidate"
   </FilesMatch>
 </IfModule>
+
+# LiteSpeed (caché del servidor): desactivar caché de páginas en este sitio,
+# para que un despliegue nuevo se sirva de inmediato (no versiones viejas).
+<IfModule LiteSpeed>
+  CacheDisable public /
+</IfModule>

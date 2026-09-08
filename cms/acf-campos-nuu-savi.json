@@ -1,0 +1,161 @@
+[
+  {
+    "key": "group_evento",
+    "title": "Datos del evento",
+    "fields": [
+      {
+        "key": "field_evento_fecha",
+        "label": "Fecha",
+        "name": "fecha",
+        "type": "date_picker",
+        "instructions": "Fecha del evento.",
+        "required": 1,
+        "parent": "group_evento",
+        "display_format": "d/m/Y",
+        "return_format": "Y-m-d",
+        "first_day": 1
+      },
+      {
+        "key": "field_evento_lugar",
+        "label": "Lugar",
+        "name": "lugar",
+        "type": "text",
+        "instructions": "Lugar o comunidad donde se realiza.",
+        "parent": "group_evento"
+      },
+      {
+        "key": "field_evento_categoria",
+        "label": "Categoría",
+        "name": "categoria",
+        "type": "select",
+        "instructions": "Categoría del evento (define el color).",
+        "parent": "group_evento",
+        "choices": {
+          "Comunidad": "Comunidad",
+          "Cívico": "Cívico",
+          "Salud": "Salud",
+          "Cultura": "Cultura",
+          "Medio ambiente": "Medio ambiente"
+        },
+        "default_value": "Comunidad",
+        "return_format": "value",
+        "ui": 0,
+        "allow_null": 0
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "evento" }]],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1
+  },
+  {
+    "key": "group_capacitacion",
+    "title": "Datos de la capacitación",
+    "fields": [
+      {
+        "key": "field_capacitacion_etiqueta",
+        "label": "Etiqueta",
+        "name": "etiqueta",
+        "type": "text",
+        "instructions": "Etiqueta que aparece sobre la foto (ej. Taller, Reunión, Curso).",
+        "parent": "group_capacitacion"
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "capacitacion" }]],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "La imagen destacada es la foto; el título es el pie de foto.",
+    "show_in_rest": 1
+  },
+  {
+    "key": "group_contrato",
+    "title": "Datos del contrato",
+    "fields": [
+      {
+        "key": "field_contrato_anio",
+        "label": "Año",
+        "name": "anio",
+        "type": "select",
+        "instructions": "Ejercicio del contrato.",
+        "required": 1,
+        "parent": "group_contrato",
+        "choices": { "2024": "2024", "2025": "2025", "2026": "2026" },
+        "default_value": "2025",
+        "return_format": "value",
+        "ui": 0,
+        "allow_null": 0
+      },
+      {
+        "key": "field_contrato_numero",
+        "label": "Número",
+        "name": "numero",
+        "type": "text",
+        "instructions": "Folio del contrato (ej. 001).",
+        "parent": "group_contrato"
+      },
+      {
+        "key": "field_contrato_archivo_contrato",
+        "label": "PDF del contrato",
+        "name": "archivo_contrato",
+        "type": "file",
+        "instructions": "Sube el PDF del contrato.",
+        "parent": "group_contrato",
+        "return_format": "url",
+        "library": "all",
+        "mime_types": "pdf"
+      },
+      {
+        "key": "field_contrato_archivo_insumos",
+        "label": "PDF de insumos",
+        "name": "archivo_insumos",
+        "type": "file",
+        "instructions": "Sube el PDF de la relación de insumos.",
+        "parent": "group_contrato",
+        "return_format": "url",
+        "library": "all",
+        "mime_types": "pdf"
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "contrato" }]],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1
+  },
+  {
+    "key": "group_actualidad",
+    "title": "Video (opcional)",
+    "fields": [
+      {
+        "key": "field_actualidad_video",
+        "label": "Video (URL)",
+        "name": "video",
+        "type": "url",
+        "instructions": "Opcional. Pega el enlace de un video de YouTube o Facebook para mostrarlo en la nota.",
+        "parent": "group_actualidad"
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "post" }]],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 1
+  }
+]

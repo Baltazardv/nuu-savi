@@ -4,6 +4,9 @@ node_modules/
 # Build de producción (se genera con "npm run build" / en CI)
 dist/
 
+# Artefactos de despliegue (ZIPs para subir a cPanel — no versionar)
+deploy/
+
 # Variables de entorno
 .env
 .env.local
