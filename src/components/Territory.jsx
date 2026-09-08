@@ -41,7 +41,7 @@ export default function Territory() {
 
           <p className="territory__lead">
             Consulta la ubicación y la cartografía oficial del municipio de Ñuu Savi:
-            relieve, clima, hidrología y uso de suelo y vegetación.
+            relieve, clima, hidrología, uso de suelo y vegetación.
           </p>
 
           <GuerreroLocator />
