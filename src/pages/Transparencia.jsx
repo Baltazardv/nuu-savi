@@ -3,6 +3,7 @@ import PageHero from "../components/PageHero.jsx";
 import Icon from "../components/Icons.jsx";
 import VisitCounter from "../components/VisitCounter.jsx";
 import { transparenciaLinks } from "../data/site.js";
+import { asset } from "../lib/asset.js";
 
 // Información que el municipio proporcionará para completar el apartado (punto 9).
 const pendientes = [
@@ -34,6 +35,19 @@ export default function Transparencia() {
       <section className="section">
         <div className="container">
           <p className="welcome-line">Bienvenidos al portal de Transparencia del Ayuntamiento de Ñuu Savi.</p>
+
+          {/* Plan Municipal de Desarrollo (documento rector) */}
+          <div className="pmd">
+            <span className="pmd__icon"><Icon name="doc" size={32} /></span>
+            <div className="pmd__body">
+              <h2 className="pmd__title">Plan Municipal de Desarrollo 2024–2027</h2>
+              <p className="pmd__desc">Documento rector de la planeación del municipio de Ñuu Savi. Consúltalo o descárgalo en formato PDF.</p>
+              <a className="btn btn--solid" href={asset("/assets/PMD-Nuu-Savi-2024-2027.pdf")} target="_blank" rel="noopener noreferrer">
+                <Icon name="doc" size={17} /> Ver el Plan Municipal de Desarrollo <Icon name="external" size={15} />
+              </a>
+              <p className="pmd__note"><Icon name="clock" size={14} /> Los informes de gobierno y la cuenta pública se anexarán en este apartado cuando el municipio los proporcione.</p>
+            </div>
+          </div>
 
           <div className="cards cards--3" style={{ marginBottom: "3rem" }}>
             <Link to="/contratos" className="card">
