@@ -7,6 +7,18 @@ dist/
 # Artefactos de despliegue (ZIPs para subir a cPanel — no versionar)
 deploy/
 
+# Material fuente pesado del cliente (ZIPs, PDFs grandes, videos, respaldos del sitio
+# viejo). Se procesan y suben directo al servidor, NUNCA al repositorio.
+*.zip
+*.mp4
+2021/
+Conociendo a *Nuu Savi*/
+Conociendo a *Ñuu Savi*/
+PRIMER INFORME*.pdf
+PMD_*.pdf
+Administradores y Usuarios*.pdf
+*.docx.pdf
+
 # Variables de entorno
 .env
 .env.local
