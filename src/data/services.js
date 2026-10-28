@@ -14,7 +14,8 @@ export const services = [
     desc: "Publicaciones oficiales, acuerdos y avisos del H. Ayuntamiento.",
     icon: "doc",
     color: "#2f8f86",
-    badge: "Enlace por definir",
+    to: "/gaceta",
+    cta: "Ver gaceta",
   },
   {
     title: "Imprime tu CURP",

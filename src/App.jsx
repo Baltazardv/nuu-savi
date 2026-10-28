@@ -9,6 +9,7 @@ import Cabildo from "./pages/Cabildo.jsx";
 import Historia from "./pages/Historia.jsx";
 import Transparencia from "./pages/Transparencia.jsx";
 import Contratos from "./pages/Contratos.jsx";
+import Gaceta from "./pages/Gaceta.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/historia" element={<Historia />} />
           <Route path="/transparencia" element={<Transparencia />} />
           <Route path="/contratos" element={<Contratos />} />
+          <Route path="/gaceta" element={<Gaceta />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

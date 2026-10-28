@@ -1,27 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
-import { contractYears, contractsByYear as fallbackByYear } from "../data/contracts.js";
+import { contracts as fallbackContracts } from "../data/contracts.js";
 import { getContratos } from "../lib/wp.js";
 import Icon from "../components/Icons.jsx";
 import { asset } from "../lib/asset.js";
 
 export default function Contratos() {
-  const [year, setYear] = useState(contractYears[0]);
-  const [byYear, setByYear] = useState(fallbackByYear);
+  const [list, setList] = useState(fallbackContracts);
+  const [q, setQ] = useState("");
 
   useEffect(() => {
     let alive = true;
-    getContratos(100).then((d) => {
+    getContratos(200).then((d) => {
       if (!alive || !d || !d.length) return;
-      const grouped = {};
-      contractYears.forEach((y) => { grouped[y] = []; });
-      d.forEach((c) => { if (c.year && grouped[c.year]) grouped[c.year].push(c); });
-      setByYear(grouped);
+      // Fusiona los del CMS con la relación base, sin duplicar por folio.
+      const byId = new Map(fallbackContracts.map((c) => [c.id, c]));
+      d.forEach((c) => { if (c.id) byId.set(c.id, c); });
+      setList([...byId.values()].sort((a, b) => a.id.localeCompare(b.id)));
     });
     return () => { alive = false; };
   }, []);
 
-  const list = byYear[year] || [];
+  const filtered = useMemo(() => {
+    const t = q.trim().toLowerCase();
+    if (!t) return list;
+    return list.filter((c) => c.id.includes(t) || (c.label || "").toLowerCase().includes(t));
+  }, [list, q]);
 
   return (
     <>
@@ -32,50 +36,41 @@ export default function Contratos() {
       />
       <section className="section">
         <div className="container">
-          {/* Punto 11: contratos divididos por año (2024–2026) */}
-          <div className="year-tabs" role="tablist" aria-label="Filtrar contratos por año">
-            {contractYears.map((y) => {
-              const count = (byYear[y] || []).length;
-              return (
-                <button
-                  key={y}
-                  role="tab"
-                  aria-selected={year === y}
-                  className={"year-tab" + (year === y ? " is-active" : "")}
-                  onClick={() => setYear(y)}
-                >
-                  {y} <span className="year-tab__count">{count}</span>
-                </button>
-              );
-            })}
+          <div className="list-toolbar">
+            <p className="list-toolbar__count"><Icon name="doc" size={18} /> {filtered.length} contrato{filtered.length === 1 ? "" : "s"}</p>
+            <div className="search-box">
+              <Icon name="search" size={16} />
+              <input
+                type="search"
+                placeholder="Buscar por número de contrato…"
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                aria-label="Buscar contrato"
+              />
+            </div>
           </div>
 
-          {list.length > 0 ? (
+          {filtered.length > 0 ? (
             <div className="contracts">
-              {list.map((c) => (
-                <article className="contract" key={c.year + "-" + c.id}>
+              {filtered.map((c) => (
+                <article className="contract" key={c.id}>
                   <div>
-                    <div className="contract__id">Contrato {c.id} · {c.year}</div>
+                    <div className="contract__id">Contrato {c.id}</div>
                     <div className="contract__label">{c.label}</div>
                   </div>
                   <div className="contract__docs">
-                    <a className="doc-btn" href={asset(c.contrato)}><Icon name="download" size={14} /> Contrato</a>
-                    <a className="doc-btn" href={asset(c.insumos)}><Icon name="download" size={14} /> Insumos</a>
+                    <a className="doc-btn" href={asset(c.contrato)} target="_blank" rel="noopener noreferrer"><Icon name="download" size={14} /> Contrato</a>
+                    <a className="doc-btn" href={asset(c.insumos)} target="_blank" rel="noopener noreferrer"><Icon name="download" size={14} /> Insumos</a>
                   </div>
                 </article>
               ))}
             </div>
           ) : (
             <div className="pending" style={{ marginBottom: "2rem" }}>
-              <h3 className="pending__title"><Icon name="clock" size={20} /> Contratos {year}</h3>
-              <p className="pending__lead">Los contratos del ejercicio {year} se publicarán cuando el municipio los proporcione.</p>
+              <h3 className="pending__title"><Icon name="info" size={20} /> Sin resultados</h3>
+              <p className="pending__lead">No se encontraron contratos que coincidan con «{q}».</p>
             </div>
           )}
-
-          <div className="callout">
-            <Icon name="info" size={22} />
-            <span>Los archivos PDF de cada contrato e insumos se colocarán en <strong>public/assets/contratos/{year}/</strong>. Mientras tanto, los enlaces apuntan a la ruta prevista de cada documento.</span>
-          </div>
         </div>
       </section>
     </>

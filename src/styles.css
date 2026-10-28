@@ -669,6 +669,26 @@ table.data td:first-child { font-weight: 600; }
 .doc-btn { display: inline-flex; align-items: center; gap: .35rem; font-size: .82rem; font-weight: 600; padding: .45rem .8rem; border-radius: 100px; border: 1.5px solid var(--line); color: var(--primary-deep); transition: background .2s, color .2s, border-color .2s; }
 .doc-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
 
+/* Barra de herramientas de listados (contador + buscador) */
+.list-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+.list-toolbar__count { display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; color: var(--primary-deep); }
+.list-toolbar__count svg { color: var(--primary); }
+.search-box { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1px solid var(--line); border-radius: 100px; padding: .5rem 1rem; box-shadow: var(--shadow-soft); min-width: 0; }
+.search-box svg { color: var(--ink-soft); flex-shrink: 0; }
+.search-box input { font: inherit; border: none; outline: none; background: transparent; color: var(--ink); min-width: 0; width: 240px; max-width: 100%; }
+.search-box input::placeholder { color: var(--ink-soft); }
+
+/* Listado de la Gaceta Municipal */
+.gaceta-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+.gaceta-list li { list-style: none; }
+.gaceta-item { display: flex; align-items: center; gap: .9rem; height: 100%; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: .9rem 1.1rem; color: var(--ink); transition: transform .2s var(--ease), box-shadow .2s, border-color .2s; }
+.gaceta-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); border-color: var(--primary-soft); }
+.gaceta-item__num { flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; background: var(--primary-wash); color: var(--primary-deep); font-weight: 800; font-size: .95rem; display: grid; place-items: center; }
+.gaceta-item__title { flex: 1; min-width: 0; font-size: .92rem; font-weight: 500; line-height: 1.35; }
+.gaceta-item__dl { flex-shrink: 0; color: var(--primary); }
+@media (max-width: 760px) { .gaceta-list { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .list-toolbar { flex-direction: column; align-items: stretch; } .search-box { justify-content: flex-start; } .search-box input { width: 100%; } }
+
 .officials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
 .official { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-soft); transition: transform .3s var(--ease), box-shadow .3s; }
 .official:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }

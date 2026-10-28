@@ -1,32 +1,21 @@
-// Contratos de obra pública, divididos por año (2024–2026).
-// Cuando los PDF estén disponibles, colocarlos en /assets/contratos/ con estos nombres
-// y ajustar la lista de cada año. `year` define en qué pestaña aparece el contrato.
+// Contratos de obra pública del municipio (relación oficial).
+// Cada contrato tiene su documento (Contrato) y su relación de insumos, en PDF.
+// Los PDF (~344 MB) se alojan en el servidor, NO en el repositorio:
+//   public_html/assets/contratos/contrato/NNN.pdf
+//   public_html/assets/contratos/insumos/NNN.pdf
 
-export const contractYears = [2024, 2025, 2026];
+// Folios entregados por el municipio: 001–031 y 033 (no hay 032).
+const FOLIOS = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+  17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33,
+];
 
-// Genera los contratos de un año a partir de un rango de folios.
-function makeContracts(year, from, to, { skip = [] } = {}) {
-  const list = [];
-  for (let i = from; i <= to; i++) {
-    if (skip.includes(i)) continue;
-    const id = String(i).padStart(3, "0");
-    list.push({
-      id,
-      year,
-      label: "Obra pública municipal",
-      contrato: `/assets/contratos/${year}/Contrato-${id}.pdf`,
-      insumos: `/assets/contratos/${year}/Insumos-${id}.pdf`,
-    });
-  }
-  return list;
-}
-
-// Distribución provisional (se ajustará con la relación oficial del municipio).
-export const contractsByYear = {
-  2024: makeContracts(2024, 1, 18),
-  2025: makeContracts(2025, 19, 33, { skip: [32] }),
-  2026: [], // Por publicar
-};
-
-// Lista plana (compatibilidad).
-export const contracts = contractYears.flatMap((y) => contractsByYear[y]);
+export const contracts = FOLIOS.map((n) => {
+  const id = String(n).padStart(3, "0");
+  return {
+    id,
+    label: "Obra pública municipal",
+    contrato: `/assets/contratos/contrato/${id}.pdf`,
+    insumos: `/assets/contratos/insumos/${id}.pdf`,
+  };
+});
