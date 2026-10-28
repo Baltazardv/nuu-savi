@@ -50,6 +50,9 @@ export const Icon = ({ name, size = 24, ...props }) => {
     mail: <><rect x="3" y="5" width="18" height="14" rx="2.5" {...S} /><path d="M4 7l8 6 8-6" {...S} /></>,
     layers: <><path d="M12 3l9 5-9 5-9-5 9-5z" {...S} /><path d="M3 13l9 5 9-5" {...S} /></>,
     expand: <><path d="M4 9V4h5M20 15v5h-5M4 4l6 6M20 20l-6-6" {...S} /></>,
+    music: <><circle cx="6.5" cy="17.5" r="2.5" {...S} /><circle cx="17.5" cy="15.5" r="2.5" {...S} /><path d="M9 17.5V6l11-2v9.5" {...S} /><path d="M9 9l11-2" {...S} /></>,
+    bowl: <><path d="M3 11h18a9 9 0 01-18 0z" {...S} /><path d="M12 3c-1.5 1.5-1.5 3 0 4.5M9 4.5c-1 1-1 2 0 3M15 4.5c-1 1-1 2 0 3" {...S} /></>,
+    paw: <><circle cx="7" cy="9" r="1.8" {...S} /><circle cx="17" cy="9" r="1.8" {...S} /><circle cx="4.5" cy="14" r="1.6" {...S} /><circle cx="19.5" cy="14" r="1.6" {...S} /><path d="M12 12c-2.5 0-4.5 2-4.5 4.2 0 1.6 1.4 2.3 2.6 1.8.6-.3 1.2-.4 1.9-.4s1.3.1 1.9.4c1.2.5 2.6-.2 2.6-1.8C16.5 14 14.5 12 12 12z" {...S} /></>,
   };
   return (
     <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" {...props}>

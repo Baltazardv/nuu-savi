@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import Icon from "../components/Icons.jsx";
+import { asset } from "../lib/asset.js";
+import { secciones } from "../data/conociendo.js";
 
 const MAP_QUERY = "Coapinola, Guerrero, México";
 const MAP_EMBED = "https://maps.google.com/maps?q=" + encodeURIComponent(MAP_QUERY) + "&z=12&hl=es&output=embed";
@@ -13,12 +16,38 @@ const datos = [
   { icon: "cloudRain", strong: "Pueblo de la lluvia", sub: "Significado de «Ñuu Savi»" },
 ];
 
+// Índice global de cada foto para el lightbox.
+const allPhotos = secciones.flatMap((s) => s.photos);
+const globalIndex = (sKey, i) => {
+  let n = 0;
+  for (const s of secciones) {
+    if (s.key === sKey) return n + i;
+    n += s.photos.length;
+  }
+  return 0;
+};
+
 export default function Conociendo() {
+  const [index, setIndex] = useState(-1);
+  const open = index >= 0;
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setIndex(-1);
+      if (e.key === "ArrowRight") setIndex((i) => (i + 1) % allPhotos.length);
+      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + allPhotos.length) % allPhotos.length);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
     <>
       <PageHero
         title="Conociendo Ñuu Savi"
-        subtitle="Conoce el origen, la lengua, la cultura y el territorio del pueblo de la lluvia."
+        subtitle="Conoce el origen, la cultura, las tradiciones y la riqueza natural del pueblo de la lluvia."
         crumbs={[{ label: "Inicio", to: "/" }, { label: "Conociendo Ñuu Savi" }]}
       />
 
@@ -28,46 +57,47 @@ export default function Conociendo() {
             {datos.map((d) => (
               <div className="conoce__fact" key={d.strong}>
                 <span className="conoce__fact-icon"><Icon name={d.icon} size={22} /></span>
-                <div>
-                  <strong>{d.strong}</strong>
-                  <span>{d.sub}</span>
-                </div>
+                <div><strong>{d.strong}</strong><span>{d.sub}</span></div>
               </div>
             ))}
           </div>
 
-          <div className="prose">
-            <h3>El pueblo de la lluvia</h3>
+          <div className="prose" style={{ marginBottom: "1rem" }}>
             <p>
               <strong>Ñuu Savi</strong> —del mixteco <em>Ñuu</em> ‘pueblo’ y <em>Savi</em> ‘lluvia’,
-              «pueblo de la lluvia»— es uno de los 85 municipios del estado de Guerrero. Su cabecera
-              es la localidad de <strong>Coapinola</strong>, y su territorio reúne <strong>37 localidades</strong>
-              que comparten lengua, tradiciones y un profundo vínculo con la tierra.
+              «pueblo de la lluvia»— es uno de los 85 municipios del estado de Guerrero. Su cabecera es
+              <strong> Coapinola</strong>, y su territorio reúne <strong>37 localidades</strong> que
+              comparten lengua, tradiciones y un profundo vínculo con la tierra. Aquí te compartimos
+              parte de su riqueza natural y cultural.
             </p>
-
-            <h3>Lengua y cultura</h3>
-            <p>
-              La lengua originaria del municipio es el <strong>Tu'un Savi</strong> (mixteco), que se
-              conserva y se transmite entre las generaciones. La vida comunitaria se organiza a través de
-              usos y costumbres, la asamblea y el trabajo colectivo o faena, pilares de la identidad del pueblo.
-            </p>
-
-            <h3>Territorio y clima</h3>
-            <p>
-              Enclavado en la región de la Costa Chica–Montaña de Guerrero, el territorio de Ñuu Savi
-              se caracteriza por sus cerros, ríos y áreas naturales. Las lluvias que dan nombre al pueblo
-              marcan el ciclo del cultivo y la vida en el campo.
-            </p>
-
-            {/* Reseña ampliada pendiente de proporcionar por el municipio. */}
-            <div className="callout">
-              <Icon name="info" size={22} />
-              <span>Esta página se ampliará con la <strong>reseña oficial, fotografías y datos que proporcione el municipio</strong> (gastronomía, fiestas, sitios de interés y cómo llegar).</span>
-            </div>
-
-            <h3>¿Dónde estamos?</h3>
           </div>
+        </div>
 
+        {/* Secciones culturales con galería */}
+        {secciones.map((s, si) => (
+          <div className="container conoce__block" key={s.key} id={s.key}>
+            <div className="conoce__block-head">
+              <span className="conoce__block-icon"><Icon name={s.icon} size={24} /></span>
+              <h2 className="h2">{s.title}</h2>
+            </div>
+            <p className="conoce__block-text">{s.text}</p>
+            <div className="conoce__gallery">
+              {s.photos.map((p, i) => (
+                <button className="conoce__photo" key={p.src} onClick={() => setIndex(globalIndex(s.key, i))} aria-label={`Ampliar: ${p.cap}`}>
+                  <img src={asset(p.src)} alt={p.cap} loading="lazy" />
+                  <span className="conoce__photo-cap">{p.cap}</span>
+                  <span className="conoce__photo-zoom"><Icon name="expand" size={16} /></span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <div className="container">
+          <div className="conoce__block-head" style={{ marginTop: "1rem" }}>
+            <span className="conoce__block-icon"><Icon name="marker" size={24} /></span>
+            <h2 className="h2">¿Dónde estamos?</h2>
+          </div>
           <figure className="conoce__map">
             <iframe
               title="Mapa interactivo de Ñuu Savi (Coapinola, Guerrero)"
@@ -79,6 +109,24 @@ export default function Conociendo() {
           </figure>
         </div>
       </section>
+
+      {open && (
+        <div className="lightbox" onClick={() => setIndex(-1)} role="dialog" aria-modal="true">
+          <button className="lightbox__close" aria-label="Cerrar" onClick={() => setIndex(-1)}>
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          <button className="lightbox__nav lightbox__prev" aria-label="Anterior" onClick={(e) => { e.stopPropagation(); setIndex((i) => (i - 1 + allPhotos.length) % allPhotos.length); }}>
+            <Icon name="chevronLeft" size={30} />
+          </button>
+          <figure className="lightbox__fig" onClick={(e) => e.stopPropagation()}>
+            <img src={asset(allPhotos[index].src)} alt={allPhotos[index].cap} />
+            <figcaption>{allPhotos[index].cap}</figcaption>
+          </figure>
+          <button className="lightbox__nav lightbox__next" aria-label="Siguiente" onClick={(e) => { e.stopPropagation(); setIndex((i) => (i + 1) % allPhotos.length); }}>
+            <Icon name="chevronRight" size={30} />
+          </button>
+        </div>
+      )}
     </>
   );
 }
