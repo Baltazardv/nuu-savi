@@ -52,11 +52,13 @@ export const transparenciaLinks = [
     desc: "Consulta obligaciones de transparencia y presenta solicitudes de información a nivel nacional.",
     href: "https://www.plataformadetransparencia.org.mx/",
     scope: "Nacional",
+    logo: "/assets/logos/pnt.png",
   },
   {
     label: "ITAIGro — Transparencia Guerrero",
     desc: "Instituto de Transparencia, Acceso a la Información y Protección de Datos Personales del Estado de Guerrero.",
     href: "https://itaigro.org.mx/",
     scope: "Estatal",
+    logo: "/assets/logos/itaigro.png",
   },
 ];

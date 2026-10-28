@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import Icon from "../components/Icons.jsx";
 import VisitCounter from "../components/VisitCounter.jsx";
 import { transparenciaLinks } from "../data/site.js";
+import { obligacionesPorAnio, aniosObligaciones, informes } from "../data/transparencia.js";
 import { asset } from "../lib/asset.js";
 
 // Información que el municipio proporcionará para completar el apartado (punto 9).
@@ -10,21 +12,22 @@ const pendientes = [
   "Directorio de servidores públicos y remuneraciones",
   "Presupuesto asignado y ejercido por ejercicio",
   "Padrón de proveedores y contratistas",
-  "Informes de gobierno y cuenta pública",
   "Datos de la Unidad de Transparencia (titular y contacto)",
 ];
 
-const rows = [
-  { label: "Marco normativo aplicable", years: [1, 1, 1, 1] },
-  { label: "Estructura orgánica", years: [1, 1, 1, 1] },
-  { label: "Facultades de cada área", years: [1, 1, 1, 1] },
-  { label: "Remuneración del personal", years: [1, 1, 1, 0] },
-  { label: "Contrataciones de obra pública", years: [1, 1, 1, 1] },
-  { label: "Presupuesto asignado y ejercido", years: [1, 1, 1, 0] },
-  { label: "Padrón de proveedores y contratistas", years: [1, 1, 1, 0] },
-];
+function NoProporcionada({ texto = "Información no proporcionada" }) {
+  return (
+    <p className="no-data"><Icon name="info" size={16} /> {texto}</p>
+  );
+}
 
 export default function Transparencia() {
+  const [anio, setAnio] = useState(aniosObligaciones[0]);
+  const [informeKey, setInformeKey] = useState(informes[0].key);
+
+  const leyes = obligacionesPorAnio[anio];
+  const informe = informes.find((i) => i.key === informeKey) || informes[0];
+
   return (
     <>
       <PageHero
@@ -45,7 +48,6 @@ export default function Transparencia() {
               <a className="btn btn--solid" href={asset("/assets/PMD-Nuu-Savi-2024-2027.pdf")} target="_blank" rel="noopener noreferrer">
                 <Icon name="doc" size={17} /> Ver el Plan Municipal de Desarrollo <Icon name="external" size={15} />
               </a>
-              <p className="pmd__note"><Icon name="clock" size={14} /> Los informes de gobierno y la cuenta pública se anexarán en este apartado cuando el municipio los proporcione.</p>
             </div>
           </div>
 
@@ -60,7 +62,7 @@ export default function Transparencia() {
               <span className="card__icon"><Icon name="shield" size={26} /></span>
               <h3 className="card__title">Obligaciones de Transparencia</h3>
               <p className="card__text">Aplicabilidad de las obligaciones comunes y específicas por ejercicio, conforme a la normatividad vigente.</p>
-              <span className="card__badge">Ver tabla abajo</span>
+              <span className="card__badge">Ver abajo por año</span>
             </div>
             <div className="card">
               <span className="card__icon"><Icon name="people" size={26} /></span>
@@ -70,28 +72,74 @@ export default function Transparencia() {
             </div>
           </div>
 
-          <div className="table-wrap">
-            <table className="data">
-              <caption>Aplicabilidad de las obligaciones de Transparencia Comunes y Específicas</caption>
-              <thead>
-                <tr><th>Obligación / Fracción</th><th>2024</th><th>2023</th><th>2022</th><th>2021</th></tr>
-              </thead>
-              <tbody>
-                {rows.map((r) => (
-                  <tr key={r.label}>
-                    <td>{r.label}</td>
-                    {r.years.map((y, i) => (
-                      <td key={i}>{y ? <span className="tag-yes">Aplica</span> : <span className="tag-na">N/A</span>}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* Obligaciones de Transparencia — selector por ejercicio fiscal */}
+          <h2 className="h2" id="obligaciones">Obligaciones de Transparencia Comunes y Específicas</h2>
+          <p className="section-sub" style={{ marginBottom: "1.4rem" }}>
+            Selecciona el ejercicio fiscal para consultar la información disponible, organizada por ley aplicable.
+          </p>
+
+          <div className="year-select">
+            <label htmlFor="anio-obligaciones"><Icon name="calendar" size={18} /> Ejercicio fiscal</label>
+            <select id="anio-obligaciones" value={anio} onChange={(e) => setAnio(Number(e.target.value))}>
+              {aniosObligaciones.map((y) => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
           </div>
 
-          <div className="callout">
-            <Icon name="info" size={22} />
-            <span>La tabla anterior reproduce la estructura del sitio actual. <strong>Debe validarse con la información oficial</strong> de la Unidad de Transparencia antes de publicarse, para confirmar qué obligaciones aplican en cada ejercicio (2021–2024).</span>
+          <div className="obliga">
+            {!leyes ? (
+              <NoProporcionada texto={`Información no proporcionada para el ejercicio ${anio}.`} />
+            ) : (
+              leyes.map((l) => (
+                <div className="obliga__ley" key={l.ley}>
+                  <h3 className="obliga__ley-title"><Icon name="shield" size={18} /> {l.ley}</h3>
+                  {l.docs.length === 0 ? (
+                    <NoProporcionada />
+                  ) : (
+                    <ul className="doc-list">
+                      {l.docs.map((d) => (
+                        <li key={d.file}>
+                          <a href={asset(d.file)} target="_blank" rel="noopener noreferrer">
+                            <Icon name="doc" size={16} /> <span>{d.label}</span>
+                            <Icon name="external" size={13} />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Informes de Rendición de Cuentas */}
+          <h2 className="h2" id="informes" style={{ marginTop: "3.2rem" }}>Informes de Rendición de Cuentas</h2>
+          <p className="section-sub" style={{ marginBottom: "1.4rem" }}>
+            Informes de gobierno del Ayuntamiento de Ñuu Savi 2024–2027.
+          </p>
+
+          <div className="year-select">
+            <label htmlFor="informe-sel"><Icon name="doc" size={18} /> Informe</label>
+            <select id="informe-sel" value={informeKey} onChange={(e) => setInformeKey(e.target.value)}>
+              {informes.map((i) => (
+                <option key={i.key} value={i.key}>{i.label}{!i.aplica ? " (No aplica)" : ""}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="informe-card">
+            <span className="informe-card__icon"><Icon name="doc" size={30} /></span>
+            <div className="informe-card__body">
+              <h3 className="informe-card__title">{informe.label}</h3>
+              {informe.aplica ? (
+                <a className="btn btn--solid" href={asset(informe.file)} target="_blank" rel="noopener noreferrer">
+                  <Icon name="doc" size={16} /> Ver informe <Icon name="external" size={14} />
+                </a>
+              ) : (
+                <NoProporcionada texto="No aplica para este periodo." />
+              )}
+            </div>
           </div>
 
           {/* Punto 8: plataformas oficiales de transparencia nacional y estatal */}
@@ -101,9 +149,13 @@ export default function Transparencia() {
           </p>
           <div className="cards cards--2" style={{ marginBottom: "3rem" }}>
             {transparenciaLinks.map((p) => (
-              <a key={p.href} className="card" href={p.href} target="_blank" rel="noopener noreferrer">
+              <a key={p.href} className="card card--plat" href={p.href} target="_blank" rel="noopener noreferrer">
                 <span className="card__scope">{p.scope}</span>
-                <span className="card__icon"><Icon name="shield" size={26} /></span>
+                {p.logo ? (
+                  <span className="card__logo"><img src={asset(p.logo)} alt={p.label} loading="lazy" /></span>
+                ) : (
+                  <span className="card__icon"><Icon name="shield" size={26} /></span>
+                )}
                 <h3 className="card__title">{p.label}</h3>
                 <p className="card__text">{p.desc}</p>
                 <span className="card__link">Ir a la plataforma <Icon name="external" size={14} /></span>

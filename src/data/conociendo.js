@@ -44,6 +44,7 @@ export const secciones = [
       { src: "/assets/fotos/conociendo/artesania-telar-3.jpg", cap: "Punto de cruz" },
       { src: "/assets/fotos/conociendo/artesania-barro-1.jpg", cap: "Arte en barro — Chacalapa" },
       { src: "/assets/fotos/conociendo/artesania-barro-2.jpg", cap: "Elaboración de comales" },
+      { src: "/assets/fotos/conociendo/artesania-extra.jpg", cap: "Artesanía de Ñuu Savi" },
     ],
   },
   {
