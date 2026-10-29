@@ -52,7 +52,7 @@ export default function News() {
   const filters = ["todos", ...presentCats];
   const shownRest = filter === "todos" ? rest : rest.filter((n) => resolveNewsCat(n).key === filter);
 
-  const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.png")})` };
+  const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.webp")})` };
 
   const imgProps = (n) => ({
     src: asset(n.img || n.image),

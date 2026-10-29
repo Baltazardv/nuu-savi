@@ -57,7 +57,7 @@ function FbDesignCard({ fb }) {
 
 export default function FacebookFeed() {
   const fb = site.facebook;
-  const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.png")})` };
+  const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.webp")})` };
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const feedRef = useRef(null);

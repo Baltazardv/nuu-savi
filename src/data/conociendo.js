@@ -11,10 +11,10 @@ export const secciones = [
       "cuenta con una flora y fauna hermosa y lugares emblemáticos como las cascadas de " +
       "Ojo de Agua y Quiahuitepec, por mencionar algunos.",
     photos: [
-      { src: "/assets/fotos/conociendo/ecoturismo-ojo-agua.jpg", cap: "Cascada de Ojo de Agua" },
-      { src: "/assets/fotos/conociendo/ecoturismo-quiahuitepec-1.jpg", cap: "Cascada de Quiahuitepec" },
-      { src: "/assets/fotos/conociendo/ecoturismo-quiahuitepec-2.jpg", cap: "Quiahuitepec" },
-      { src: "/assets/fotos/conociendo/ecoturismo-cumbre.jpg", cap: "Piedras de la Cumbre de Coatzalzin" },
+      { src: "/assets/fotos/conociendo/ecoturismo-ojo-agua.webp", cap: "Cascada de Ojo de Agua" },
+      { src: "/assets/fotos/conociendo/ecoturismo-quiahuitepec-1.webp", cap: "Cascada de Quiahuitepec" },
+      { src: "/assets/fotos/conociendo/ecoturismo-quiahuitepec-2.webp", cap: "Quiahuitepec" },
+      { src: "/assets/fotos/conociendo/ecoturismo-cumbre.webp", cap: "Piedras de la Cumbre de Coatzalzin" },
     ],
   },
   {
@@ -25,9 +25,9 @@ export const secciones = [
       "En 2025 se llevó a cabo un monitoreo de nuestra fauna silvestre en las comunidades de " +
       "Quiahuitepec y El Charquito, donde se confirmó la presencia de pumas.",
     photos: [
-      { src: "/assets/fotos/conociendo/fauna-1.jpg", cap: "Fauna silvestre de Ñuu Savi" },
-      { src: "/assets/fotos/conociendo/fauna-2.jpg", cap: "Monitoreo de fauna 2025" },
-      { src: "/assets/fotos/conociendo/fauna-3.jpg", cap: "Puma registrado en el municipio" },
+      { src: "/assets/fotos/conociendo/fauna-1.webp", cap: "Fauna silvestre de Ñuu Savi" },
+      { src: "/assets/fotos/conociendo/fauna-2.webp", cap: "Monitoreo de fauna 2025" },
+      { src: "/assets/fotos/conociendo/fauna-3.webp", cap: "Puma registrado en el municipio" },
     ],
   },
   {
@@ -39,12 +39,12 @@ export const secciones = [
       "mismos con el telar de cintura y el punto de cruz. También hay comunidades que desarrollan " +
       "su arte en el barro, elaborando comales (Chacalapa).",
     photos: [
-      { src: "/assets/fotos/conociendo/artesania-telar-1.jpg", cap: "Telar de cintura" },
-      { src: "/assets/fotos/conociendo/artesania-telar-2.jpg", cap: "Vestimenta tradicional" },
-      { src: "/assets/fotos/conociendo/artesania-telar-3.jpg", cap: "Punto de cruz" },
-      { src: "/assets/fotos/conociendo/artesania-barro-1.jpg", cap: "Arte en barro — Chacalapa" },
-      { src: "/assets/fotos/conociendo/artesania-barro-2.jpg", cap: "Elaboración de comales" },
-      { src: "/assets/fotos/conociendo/artesania-extra.jpg", cap: "Artesanía de Ñuu Savi" },
+      { src: "/assets/fotos/conociendo/artesania-telar-1.webp", cap: "Telar de cintura" },
+      { src: "/assets/fotos/conociendo/artesania-telar-2.webp", cap: "Vestimenta tradicional" },
+      { src: "/assets/fotos/conociendo/artesania-telar-3.webp", cap: "Punto de cruz" },
+      { src: "/assets/fotos/conociendo/artesania-barro-1.webp", cap: "Arte en barro — Chacalapa" },
+      { src: "/assets/fotos/conociendo/artesania-barro-2.webp", cap: "Elaboración de comales" },
+      { src: "/assets/fotos/conociendo/artesania-extra.webp", cap: "Artesanía de Ñuu Savi" },
     ],
   },
   {
@@ -56,11 +56,11 @@ export const secciones = [
       "la panela (panocha): cerca del 80% del municipio la produce de forma artesanal con un trapiche " +
       "arrastrado por un buey. Una bebida típica es el siva'a (chilate), elaborado con productos de la región.",
     photos: [
-      { src: "/assets/fotos/conociendo/gastronomia-panela-1.jpg", cap: "Elaboración de panela" },
-      { src: "/assets/fotos/conociendo/gastronomia-panela-2.jpg", cap: "Trapiche artesanal" },
-      { src: "/assets/fotos/conociendo/gastronomia-panela-3.jpg", cap: "Producción de panocha" },
-      { src: "/assets/fotos/conociendo/gastronomia-chilate-1.jpg", cap: "Siva'a (chilate)" },
-      { src: "/assets/fotos/conociendo/gastronomia-chilate-2.jpg", cap: "Bebida tradicional de la región" },
+      { src: "/assets/fotos/conociendo/gastronomia-panela-1.webp", cap: "Elaboración de panela" },
+      { src: "/assets/fotos/conociendo/gastronomia-panela-2.webp", cap: "Trapiche artesanal" },
+      { src: "/assets/fotos/conociendo/gastronomia-panela-3.webp", cap: "Producción de panocha" },
+      { src: "/assets/fotos/conociendo/gastronomia-chilate-1.webp", cap: "Siva'a (chilate)" },
+      { src: "/assets/fotos/conociendo/gastronomia-chilate-2.webp", cap: "Bebida tradicional de la región" },
     ],
   },
   {
@@ -72,11 +72,11 @@ export const secciones = [
       "comunidad realiza adorando a San Marcos: la comunidad se reúne, prepara el altar y realiza el " +
       "baile de Potete, acompañado por piezas musicales interpretadas por los músicos locales.",
     photos: [
-      { src: "/assets/fotos/conociendo/cultura-sanmarcos-1.jpg", cap: "Festividad de San Marcos" },
-      { src: "/assets/fotos/conociendo/cultura-sanmarcos-2.jpg", cap: "Ritual de petición de lluvia" },
-      { src: "/assets/fotos/conociendo/cultura-potete-1.jpg", cap: "Danza de Potete" },
-      { src: "/assets/fotos/conociendo/cultura-potete-2.jpg", cap: "Baile tradicional" },
-      { src: "/assets/fotos/conociendo/cultura-muertos.jpg", cap: "Día de Muertos" },
+      { src: "/assets/fotos/conociendo/cultura-sanmarcos-1.webp", cap: "Festividad de San Marcos" },
+      { src: "/assets/fotos/conociendo/cultura-sanmarcos-2.webp", cap: "Ritual de petición de lluvia" },
+      { src: "/assets/fotos/conociendo/cultura-potete-1.webp", cap: "Danza de Potete" },
+      { src: "/assets/fotos/conociendo/cultura-potete-2.webp", cap: "Baile tradicional" },
+      { src: "/assets/fotos/conociendo/cultura-muertos.webp", cap: "Día de Muertos" },
     ],
   },
   {
@@ -87,9 +87,9 @@ export const secciones = [
       "El folclor y la música son parte fundamental de la identidad de Ñuu Savi. Cada comunidad " +
       "cuenta con su propia banda de música de viento, que da alegría a las fiestas patronales.",
     photos: [
-      { src: "/assets/fotos/conociendo/musica-1.jpg", cap: "Banda de música de viento" },
-      { src: "/assets/fotos/conociendo/musica-2.jpg", cap: "Músicos de la comunidad" },
-      { src: "/assets/fotos/conociendo/musica-3.jpg", cap: "Folclor de Ñuu Savi" },
+      { src: "/assets/fotos/conociendo/musica-1.webp", cap: "Banda de música de viento" },
+      { src: "/assets/fotos/conociendo/musica-2.webp", cap: "Músicos de la comunidad" },
+      { src: "/assets/fotos/conociendo/musica-3.webp", cap: "Folclor de Ñuu Savi" },
     ],
   },
 ];

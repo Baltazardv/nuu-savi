@@ -22,7 +22,7 @@ export default function Header({ transparentOnTop = false }) {
       <header className={`header${scrolled ? " is-scrolled" : ""}${overHero ? " is-over-hero" : ""}`}>
         <div className="header__bar container">
           <Link to="/" className="brand" aria-label={`Inicio — ${site.longName}`}>
-            <img src={asset("/assets/escudo.png")} alt="Escudo de Ñuu Savi" className="brand__mark" />
+            <img src={asset("/assets/escudo.webp")} alt="Escudo de Ñuu Savi" className="brand__mark" />
             <span className="brand__text">
               <strong>Ñuu Savi</strong>
               <small>Gobierno Municipal · Guerrero</small>

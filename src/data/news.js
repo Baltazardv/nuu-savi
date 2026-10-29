@@ -35,7 +35,7 @@ export const news = [
       "Estrenamos un espacio digital para acercar los servicios, la historia y la transparencia del municipio a toda la comunidad.",
     featured: true,
     img: "/assets/fotos/noticias/bienvenida.jpg",
-    fallback: "/assets/fotos/asamblea.jpg",
+    fallback: "/assets/fotos/asamblea.webp",
   },
   {
     id: 2,
@@ -46,7 +46,7 @@ export const news = [
     excerpt:
       "El ayuntamiento informa sobre las obras en marcha para mejorar la conectividad entre las comunidades del territorio.",
     img: "/assets/fotos/noticias/obras.jpg",
-    fallback: "/assets/fotos/administracion.jpg",
+    fallback: "/assets/fotos/administracion.webp",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const news = [
     excerpt:
       "Abrimos inscripciones para los talleres comunitarios dedicados a preservar la lengua Tu'un Savi y las tradiciones locales.",
     img: "/assets/fotos/noticias/cultura.jpg",
-    fallback: "/assets/fotos/eventos/lengua.jpg",
+    fallback: "/assets/fotos/eventos/lengua.webp",
   },
   {
     id: 4,
@@ -68,7 +68,7 @@ export const news = [
     excerpt:
       "Agradecemos a todas y todos los que participaron en esta jornada por nuestro territorio y las futuras generaciones.",
     img: "/assets/fotos/noticias/reforestacion.jpg",
-    fallback: "/assets/fotos/eventos/reforestacion.jpg",
+    fallback: "/assets/fotos/eventos/reforestacion.webp",
   },
   {
     id: 5,
@@ -78,8 +78,8 @@ export const news = [
     title: "Registro Civil: horarios y trámites disponibles",
     excerpt:
       "La oficina del Registro Civil del municipio informa los horarios de atención y los trámites de actas de nacimiento, matrimonio y defunción. (Información por confirmar con el municipio.)",
-    img: "/assets/fotos/administracion.jpg",
-    fallback: "/assets/fotos/asamblea.jpg",
+    img: "/assets/fotos/administracion.webp",
+    fallback: "/assets/fotos/asamblea.webp",
     // Para agregar un video a esta nota:
     // video: "https://www.facebook.com/61550486085759/videos/XXXXXXXX/",
   },

@@ -38,7 +38,7 @@ export default function Events() {
         <div>
           <p className="events__kicker">Cultura, salud y momentos importantes</p>
           <h2 className="h2">Próximos eventos</h2>
-          <span className="events__greca" aria-hidden="true" style={{ backgroundImage: `url(${asset("/assets/fotos/greca.png")})` }} />
+          <span className="events__greca" aria-hidden="true" style={{ backgroundImage: `url(${asset("/assets/fotos/greca.webp")})` }} />
           <p className="events__lead">
             Participa en las actividades que fortalecen nuestra comunidad. Conoce, asiste y sé
             parte de lo que construimos juntos.

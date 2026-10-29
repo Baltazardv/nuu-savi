@@ -19,14 +19,14 @@ const stats = [
 ];
 
 const fallbackPhotos = [
-  { src: "/assets/fotos/capacitacion-1.jpg", tag: "Taller", cap: "Manual de Organización de la Administración Pública Municipal" },
-  { src: "/assets/fotos/capacitacion-2.jpg", tag: "Capacitación", cap: "Formación continua de las y los servidores públicos" },
-  { src: "/assets/fotos/reunion-1.jpg", tag: "Reunión", cap: "Reunión de trabajo del cabildo municipal" },
-  { src: "/assets/fotos/capacitacion-4.jpg", tag: "Formación", cap: "Jornada de capacitación al personal municipal" },
-  { src: "/assets/fotos/administracion.jpg", tag: "Administración", cap: "Trabajo administrativo en las oficinas del ayuntamiento" },
-  { src: "/assets/fotos/reunion-3.jpg", tag: "Cabildo", cap: "Sesión de cabildo del Municipio de Ñuu Savi" },
-  { src: "/assets/fotos/capacitacion-3.jpg", tag: "Curso", cap: "Taller sobre el Código de Conducta municipal" },
-  { src: "/assets/fotos/asamblea.jpg", tag: "Asamblea", cap: "Asamblea con la comunidad" },
+  { src: "/assets/fotos/capacitacion-1.webp", tag: "Taller", cap: "Manual de Organización de la Administración Pública Municipal" },
+  { src: "/assets/fotos/capacitacion-2.webp", tag: "Capacitación", cap: "Formación continua de las y los servidores públicos" },
+  { src: "/assets/fotos/reunion-1.webp", tag: "Reunión", cap: "Reunión de trabajo del cabildo municipal" },
+  { src: "/assets/fotos/capacitacion-4.webp", tag: "Formación", cap: "Jornada de capacitación al personal municipal" },
+  { src: "/assets/fotos/administracion.webp", tag: "Administración", cap: "Trabajo administrativo en las oficinas del ayuntamiento" },
+  { src: "/assets/fotos/reunion-3.webp", tag: "Cabildo", cap: "Sesión de cabildo del Municipio de Ñuu Savi" },
+  { src: "/assets/fotos/capacitacion-3.webp", tag: "Curso", cap: "Taller sobre el Código de Conducta municipal" },
+  { src: "/assets/fotos/asamblea.webp", tag: "Asamblea", cap: "Asamblea con la comunidad" },
 ];
 
 export default function Gallery() {
@@ -55,7 +55,7 @@ export default function Gallery() {
     };
   }, [open, photos.length]);
 
-  const grecaUrl = { backgroundImage: `url(${asset("/assets/fotos/greca.png")})` };
+  const grecaUrl = { backgroundImage: `url(${asset("/assets/fotos/greca.webp")})` };
 
   return (
     <section className="section gallery" id="capacitaciones">

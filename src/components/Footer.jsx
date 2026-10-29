@@ -6,7 +6,7 @@ import Icon from "./Icons.jsx";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.png")})` };
+  const grecaStyle = { backgroundImage: `url(${asset("/assets/fotos/greca.webp")})` };
 
   return (
     <footer className="footer">
@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="footer__main">
         <div className="container footer__grid">
           <div className="footer__brand">
-            <img src={asset("/assets/escudo-ayuntamiento.png")} alt="Escudo del Ayuntamiento de Ñuu Savi" />
+            <img src={asset("/assets/escudo-ayuntamiento.webp")} alt="Escudo del Ayuntamiento de Ñuu Savi" />
             <p className="footer__motto">Por nuestra identidad,<br />historia y progreso.</p>
             <span className="footer__diamonds" aria-hidden="true">◆ ◆ ◆</span>
             <p className="footer__social-label">Síguenos en redes sociales</p>

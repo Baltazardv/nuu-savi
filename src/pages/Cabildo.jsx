@@ -69,7 +69,7 @@ export default function Cabildo() {
       <section className="section" style={{ paddingBottom: "1rem" }}>
         <div className="container">
           <figure className="cabildo-group">
-            <img src={asset("/assets/fotos/cabildo-grupo.jpg")} alt="Integrantes del Cabildo de Ñuu Savi 2024–2027" />
+            <img src={asset("/assets/fotos/cabildo-grupo.webp")} alt="Integrantes del Cabildo de Ñuu Savi 2024–2027" />
             <figcaption>Instalación del H. Ayuntamiento de Ñuu Savi · Periodo 2024–2027</figcaption>
           </figure>
         </div>

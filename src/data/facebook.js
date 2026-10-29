@@ -4,7 +4,7 @@
 export const fbPosts = [
   {
     img: "/assets/fotos/noticias/bienvenida.jpg",
-    fallback: "/assets/fotos/asamblea.jpg",
+    fallback: "/assets/fotos/asamblea.webp",
     date: "12 de agosto de 2025",
     title: "Asamblea comunitaria en Coapinola",
     excerpt: "Seguimos trabajando de la mano con nuestra comunidad.",
@@ -12,15 +12,15 @@ export const fbPosts = [
   },
   {
     img: "/assets/fotos/noticias/obras.jpg",
-    fallback: "/assets/fotos/administracion.jpg",
+    fallback: "/assets/fotos/administracion.webp",
     date: "5 de agosto de 2025",
     title: "Avanzan trabajos de mejora en caminos rurales",
     excerpt: "Mejor infraestructura para comunidades más conectadas.",
     likes: 98, comments: 7, shares: 5,
   },
   {
-    img: "/assets/fotos/eventos/reforestacion.jpg",
-    fallback: "/assets/fotos/capacitacion-4.jpg",
+    img: "/assets/fotos/eventos/reforestacion.webp",
+    fallback: "/assets/fotos/capacitacion-4.webp",
     date: "28 de julio de 2025",
     title: "Faena comunitaria de reforestación",
     excerpt: "Cuidamos nuestra tierra, sembramos futuro para las próximas generaciones.",

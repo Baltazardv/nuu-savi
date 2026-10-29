@@ -9,7 +9,7 @@ export const officials = [
     name: "Donaciano Morales Porfirio",
     title: "Presidente Municipal Constitucional",
     role: "Presidencia Municipal",
-    photo: "/assets/fotos/cabildo/presidente.jpg",
+    photo: "/assets/fotos/cabildo/presidente.webp",
     formacion:
       "Licenciatura en Sociología por la Universidad Autónoma de Guerrero. Cursó sus estudios profesionales en Chilpancingo de los Bravos durante el periodo 1995–1999.",
     comunitarios: [
@@ -30,7 +30,7 @@ export const officials = [
     name: "Angelina Montalvo Hernández",
     title: "Síndica Procuradora Municipal",
     role: "Sindicatura",
-    photo: "/assets/fotos/cabildo/sindica.jpg",
+    photo: "/assets/fotos/cabildo/sindica.webp",
     formacion: "Licenciatura en Educación Primaria Indígena.",
     comunitarios: [
       "Comité del Consejo de Participación Social de la Escuela",
@@ -51,7 +51,7 @@ export const officials = [
     name: "Víctor Bernabé Porfirio",
     title: "Regidor de Obras Públicas y Desarrollo Urbano",
     role: "Regiduría",
-    photo: "/assets/fotos/cabildo/obras.jpg",
+    photo: "/assets/fotos/cabildo/obras.webp",
     formacion:
       "Ingeniero Topógrafo y Geodesta, Ingeniero Civil y Técnico Programador Analista (Computación).",
     comunitarios: [
@@ -67,7 +67,7 @@ export const officials = [
     name: "Crispina Macario Margarita",
     title: "Regidora de Salud Pública y Asistencia Social",
     role: "Regiduría",
-    photo: "/assets/fotos/cabildo/salud.jpg",
+    photo: "/assets/fotos/cabildo/salud.webp",
     formacion: "Licenciatura en Derecho.",
     comunitarios: [
       "Jefa de Manzana en el Centro de Salud",
@@ -86,7 +86,7 @@ export const officials = [
     name: "Felipe García Camilo",
     title: "Regidor de Desarrollo Rural y Ecología, Medio Ambiente y Recursos Naturales",
     role: "Regiduría",
-    photo: "/assets/fotos/cabildo/desarrollo-rural.jpg",
+    photo: "/assets/fotos/cabildo/desarrollo-rural.webp",
     formacion:
       "Ingeniero Agrónomo con especialidad en Fitotecnia, egresado del Colegio Superior Agropecuario del Estado de Guerrero (SADER-CSAEGRO), generación 2017.",
     comunitarios: [
@@ -103,7 +103,7 @@ export const officials = [
     name: "Ninfa Neri Cornelio",
     title: "Regidora de Educación, Juventud, Deporte y Cultura",
     role: "Regiduría",
-    photo: "/assets/fotos/cabildo/educacion.jpg",
+    photo: "/assets/fotos/cabildo/educacion.webp",
     formacion: "Licenciatura en Desarrollo Sustentable.",
     comunitarios: [
       "Enlace de la comunidad de El Charquito",
@@ -120,7 +120,7 @@ export const officials = [
     name: "Luis Miguel Francisco Delfino",
     title: "Regidor de Seguridad Pública y Transparencia",
     role: "Regiduría",
-    photo: "/assets/fotos/cabildo/seguridad.jpg",
+    photo: "/assets/fotos/cabildo/seguridad.webp",
     formacion: "Licenciatura en Derecho.",
     comunitarios: [
       "Comité de Agua Potable",
@@ -140,7 +140,7 @@ export const officials = [
     name: "Hortensia Zuñiga Saturnino",
     title: "Regidora de Participación Social de la Mujer y Asuntos Indígenas",
     role: "Regiduría",
-    photo: "/assets/fotos/cabildo/mujer.jpg",
+    photo: "/assets/fotos/cabildo/mujer.webp",
     formacion: "No aplica.",
     comunitarios: ["Comité de Salud", "Comité de Comedor Comunitario"],
     comisiones: [

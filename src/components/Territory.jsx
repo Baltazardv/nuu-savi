@@ -12,13 +12,13 @@ const MAP_LINK = "https://www.google.com/maps/search/?api=1&query=" + encodeURIC
 const layers = [
   { key: "ubicacion", label: "Ubicación", icon: "marker", type: "map",
     note: "Mapa interactivo · cabecera municipal de Coapinola, Guerrero. Arrastra y haz zoom para explorar." },
-  { key: "relieve", label: "Relieve", icon: "mountain", img: "/assets/fotos/cartografia/relieve.jpg",
+  { key: "relieve", label: "Relieve", icon: "mountain", img: "/assets/fotos/cartografia/relieve.webp",
     note: "Cartografía de relieve del municipio de Ñuu Savi." },
-  { key: "clima", label: "Clima", icon: "cloudRain", img: "/assets/fotos/cartografia/clima.jpg",
+  { key: "clima", label: "Clima", icon: "cloudRain", img: "/assets/fotos/cartografia/clima.webp",
     note: "Cartografía de clima del municipio de Ñuu Savi." },
-  { key: "hidrologia", label: "Hidrología", icon: "drop", img: "/assets/fotos/cartografia/hidrologia.jpg",
+  { key: "hidrologia", label: "Hidrología", icon: "drop", img: "/assets/fotos/cartografia/hidrologia.webp",
     note: "Cartografía de hidrología del municipio de Ñuu Savi." },
-  { key: "uso", label: "Uso de suelo y vegetación", icon: "leaf", img: "/assets/fotos/cartografia/uso-suelo-vegetacion.jpg",
+  { key: "uso", label: "Uso de suelo y vegetación", icon: "leaf", img: "/assets/fotos/cartografia/uso-suelo-vegetacion.webp",
     note: "Cartografía de uso de suelo y vegetación del municipio de Ñuu Savi." },
 ];
 
@@ -34,7 +34,7 @@ export default function Territory() {
 
       <div className="container territory__grid">
         <div className="territory__text">
-          <span className="territory__greca" aria-hidden="true" style={{ backgroundImage: `url(${asset("/assets/fotos/greca.png")})` }} />
+          <span className="territory__greca" aria-hidden="true" style={{ backgroundImage: `url(${asset("/assets/fotos/greca.webp")})` }} />
           <h2 className="h2">Explora el territorio</h2>
           <p className="territory__kicker">Mapa y cartografía del municipio</p>
           <span className="territory__divider" aria-hidden="true" />

@@ -7,7 +7,7 @@ export default function CabildoTeaser() {
     <section className="section cabildo-teaser" id="cabildo">
       <div className="container cabildo-teaser__grid">
         <figure className="cabildo-teaser__media">
-          <img src={asset("/assets/fotos/cabildo-grupo.jpg")} alt="Cabildo del Municipio de Ñuu Savi 2024–2027" loading="lazy" />
+          <img src={asset("/assets/fotos/cabildo-grupo.webp")} alt="Cabildo del Municipio de Ñuu Savi 2024–2027" loading="lazy" />
         </figure>
         <div className="cabildo-teaser__body">
           <p className="kicker">Gobierno municipal</p>
