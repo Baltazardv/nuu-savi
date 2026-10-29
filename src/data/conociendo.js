@@ -86,6 +86,7 @@ export const secciones = [
     text:
       "El folclor y la música son parte fundamental de la identidad de Ñuu Savi. Cada comunidad " +
       "cuenta con su propia banda de música de viento, que da alegría a las fiestas patronales.",
+    audio: { src: "/assets/audio/musica-nuu-savi.m4a", title: "Música tradicional de Ñuu Savi" },
     photos: [
       { src: "/assets/fotos/conociendo/musica-1.webp", cap: "Banda de música de viento" },
       { src: "/assets/fotos/conociendo/musica-2.webp", cap: "Músicos de la comunidad" },

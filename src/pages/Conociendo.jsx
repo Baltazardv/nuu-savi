@@ -81,6 +81,14 @@ export default function Conociendo() {
               <h2 className="h2">{s.title}</h2>
             </div>
             <p className="conoce__block-text">{s.text}</p>
+            {s.audio && (
+              <figure className="conoce__audio">
+                <figcaption><Icon name="music" size={18} /> {s.audio.title}</figcaption>
+                <audio controls preload="none" src={asset(s.audio.src)}>
+                  Tu navegador no puede reproducir el audio.
+                </audio>
+              </figure>
+            )}
             <div className="conoce__gallery">
               {s.photos.map((p, i) => (
                 <button className="conoce__photo" key={p.src} onClick={() => setIndex(globalIndex(s.key, i))} aria-label={`Ampliar: ${p.cap}`}>
