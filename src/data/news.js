@@ -77,7 +77,7 @@ export const news = [
     date: "Publicado el 1 de septiembre de 2025",
     title: "Registro Civil: horarios y trámites disponibles",
     excerpt:
-      "La oficina del Registro Civil del municipio informa los horarios de atención y los trámites de actas de nacimiento, matrimonio y defunción. (Información por confirmar con el municipio.)",
+      "La oficina del Registro Civil del municipio informa los horarios de atención y los trámites de actas de nacimiento, matrimonio y defunción.",
     img: "/assets/fotos/administracion.webp",
     fallback: "/assets/fotos/asamblea.webp",
     // Para agregar un video a esta nota:

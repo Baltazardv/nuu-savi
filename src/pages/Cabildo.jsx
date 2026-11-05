@@ -99,11 +99,6 @@ export default function Cabildo() {
               </article>
             ))}
           </div>
-
-          <div className="callout">
-            <Icon name="info" size={22} />
-            <span>La fotografía del regidor <strong>Felipe García Camilo</strong> se incorporará cuando el municipio la proporcione. Da clic en cada integrante para ver su semblanza completa.</span>
-          </div>
         </div>
       </section>
 

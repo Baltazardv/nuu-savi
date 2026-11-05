@@ -64,12 +64,12 @@ export default function Transparencia() {
               <p className="card__text">Aplicabilidad de las obligaciones comunes y específicas por ejercicio, conforme a la normatividad vigente.</p>
               <span className="card__badge">Ver abajo por año</span>
             </div>
-            <div className="card">
+            <a className="card" href="https://www.plataformadetransparencia.org.mx/" target="_blank" rel="noopener noreferrer">
               <span className="card__icon"><Icon name="people" size={26} /></span>
               <h3 className="card__title">Solicitudes de Información</h3>
-              <p className="card__text">Ejerce tu derecho de acceso a la información ante la Unidad de Transparencia del municipio.</p>
-              <span className="card__badge">Enlace por definir</span>
-            </div>
+              <p className="card__text">Ejerce tu derecho de acceso a la información presentando tu solicitud en la Plataforma Nacional de Transparencia.</p>
+              <span className="card__link">Presentar solicitud <Icon name="external" size={14} /></span>
+            </a>
           </div>
 
           {/* Obligaciones de Transparencia — selector por ejercicio fiscal */}

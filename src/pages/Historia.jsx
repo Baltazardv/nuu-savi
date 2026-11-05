@@ -1,12 +1,6 @@
 import PageHero from "../components/PageHero.jsx";
-import Icon from "../components/Icons.jsx";
-import { asset } from "../lib/asset.js";
 
 export default function Historia() {
-  // Cuando el municipio comparta el PDF, colócalo en /assets/Cacicazgo-de-Coapinola.pdf
-  const pdf = "/assets/Cacicazgo-de-Coapinola.pdf";
-  const pdfDisponible = false; // cambiar a true cuando exista el archivo
-
   return (
     <>
       <PageHero
@@ -39,30 +33,9 @@ export default function Historia() {
             </p>
             <p>
               El territorio conserva la memoria de las generaciones que lo habitaron, su lengua
-              <strong> Tu'un Savi</strong>, sus tradiciones y su vínculo con la tierra y el cultivo.
-              El documento histórico que se presenta a continuación reúne los datos que sostienen
-              esta identidad.
+              <strong> Tu'un Savi</strong>, sus tradiciones y su vínculo con la tierra y el cultivo:
+              raíces que sostienen la identidad del pueblo de la lluvia.
             </p>
-            <h3>Documento histórico</h3>
-          </div>
-
-          <div className="doc-embed">
-            {pdfDisponible ? (
-              <iframe className="doc-embed__frame" src={asset(pdf)} title="Cacicazgo de Coapinola" />
-            ) : (
-              <div className="doc-embed__placeholder">
-                <Icon name="doc" size={54} />
-                <div>
-                  <p className="doc-embed__filename">Cacicazgo-de-Coapinola.pdf</p>
-                  <p>Documento de 8 páginas. Se incrustará aquí cuando el municipio comparta el archivo.</p>
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="callout">
-            <Icon name="info" size={22} />
-            <span>El PDF histórico del sitio actual se migrará a esta sección. Colócalo en <strong>public/assets/Cacicazgo-de-Coapinola.pdf</strong> y cambia <code>pdfDisponible</code> a <code>true</code> en <code>Historia.jsx</code>.</span>
           </div>
         </div>
       </section>
