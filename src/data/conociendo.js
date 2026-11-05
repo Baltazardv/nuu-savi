@@ -26,9 +26,9 @@ export const secciones = [
       "En 2025 se llevó a cabo un monitoreo de nuestra fauna silvestre en las comunidades de " +
       "Quiahuitepec y El Charquito, donde se confirmó la presencia de pumas.",
     photos: [
-      { src: "/assets/fotos/conociendo/fauna-1.webp", cap: "Fauna silvestre de Ñuu Savi" },
-      { src: "/assets/fotos/conociendo/fauna-2.webp", cap: "Monitoreo de fauna 2025" },
-      { src: "/assets/fotos/conociendo/fauna-3.webp", cap: "Puma registrado en el municipio" },
+      { src: "/assets/fotos/conociendo/fauna-1.webp", cap: "Puma registrado en el municipio" },
+      { src: "/assets/fotos/conociendo/fauna-2.webp", cap: "Venado registrado en el municipio" },
+      { src: "/assets/fotos/conociendo/fauna-3.webp", cap: "Jabalí registrado en el municipio" },
     ],
   },
   {
