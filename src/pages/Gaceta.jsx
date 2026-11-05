@@ -1,17 +1,31 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import Icon from "../components/Icons.jsx";
 import { asset } from "../lib/asset.js";
 import { gaceta } from "../data/gaceta.js";
+import { getGaceta } from "../lib/wp.js";
 
 export default function Gaceta() {
   const [q, setQ] = useState("");
+  const [items, setItems] = useState(gaceta);
+
+  useEffect(() => {
+    let alive = true;
+    getGaceta(200).then((d) => {
+      if (!alive || !d || !d.length) return;
+      // Fusiona la lista base con las publicaciones del CMS, sin duplicar por número.
+      const byNum = new Map(gaceta.map((g) => [g.num, g]));
+      d.forEach((g) => { if (g.num) byNum.set(g.num, g); });
+      setItems([...byNum.values()].sort((a, b) => a.num - b.num));
+    });
+    return () => { alive = false; };
+  }, []);
 
   const filtered = useMemo(() => {
     const t = q.trim().toLowerCase();
-    if (!t) return gaceta;
-    return gaceta.filter((g) => g.title.toLowerCase().includes(t) || String(g.num).includes(t));
-  }, [q]);
+    if (!t) return items;
+    return items.filter((g) => g.title.toLowerCase().includes(t) || String(g.num).includes(t));
+  }, [items, q]);
 
   return (
     <>

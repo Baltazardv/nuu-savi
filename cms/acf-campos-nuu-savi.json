@@ -157,5 +157,101 @@
     "active": true,
     "description": "",
     "show_in_rest": 1
+  },
+  {
+    "key": "group_gaceta",
+    "title": "Datos de la publicación",
+    "fields": [
+      {
+        "key": "field_gaceta_numero",
+        "label": "Número",
+        "name": "numero",
+        "type": "number",
+        "instructions": "Número consecutivo de la publicación (ej. 84). Define el orden en la lista.",
+        "required": 1,
+        "parent": "group_gaceta"
+      },
+      {
+        "key": "field_gaceta_archivo",
+        "label": "PDF de la publicación",
+        "name": "archivo",
+        "type": "file",
+        "instructions": "Sube el PDF de la publicación.",
+        "required": 1,
+        "parent": "group_gaceta",
+        "return_format": "url",
+        "library": "all",
+        "mime_types": "pdf"
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "gaceta" }]],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "El título del documento es el nombre de la publicación.",
+    "show_in_rest": 1
+  },
+  {
+    "key": "group_doc_transparencia",
+    "title": "Datos del documento de transparencia",
+    "fields": [
+      {
+        "key": "field_doct_anio",
+        "label": "Ejercicio fiscal",
+        "name": "anio",
+        "type": "select",
+        "instructions": "Año al que corresponde el documento.",
+        "required": 1,
+        "parent": "group_doc_transparencia",
+        "choices": { "2021": "2021", "2022": "2022", "2023": "2023", "2024": "2024", "2025": "2025", "2026": "2026" },
+        "default_value": "2024",
+        "return_format": "value",
+        "ui": 0,
+        "allow_null": 0
+      },
+      {
+        "key": "field_doct_ley",
+        "label": "Ley aplicable",
+        "name": "ley",
+        "type": "select",
+        "instructions": "Ley a la que corresponde la obligación.",
+        "required": 1,
+        "parent": "group_doc_transparencia",
+        "choices": {
+          "Ley General de Contabilidad Gubernamental": "Ley General de Contabilidad Gubernamental",
+          "Ley de Disciplina Financiera": "Ley de Disciplina Financiera",
+          "Ley número 207 de Transparencia y Acceso a la Información Pública del Estado de Guerrero": "Ley número 207 de Transparencia y Acceso a la Información Pública del Estado de Guerrero",
+          "Ley de Coordinación Fiscal": "Ley de Coordinación Fiscal"
+        },
+        "default_value": "Ley General de Contabilidad Gubernamental",
+        "return_format": "value",
+        "ui": 0,
+        "allow_null": 0
+      },
+      {
+        "key": "field_doct_archivo",
+        "label": "PDF del documento",
+        "name": "archivo",
+        "type": "file",
+        "instructions": "Sube el PDF del documento.",
+        "required": 1,
+        "parent": "group_doc_transparencia",
+        "return_format": "url",
+        "library": "all",
+        "mime_types": "pdf"
+      }
+    ],
+    "location": [[{ "param": "post_type", "operator": "==", "value": "doc_transparencia" }]],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "El título del documento es su nombre (ej. «Estado de Situación Financiera»).",
+    "show_in_rest": 1
   }
 ]

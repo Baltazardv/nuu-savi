@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero.jsx";
 import Icon from "../components/Icons.jsx";
 import VisitCounter from "../components/VisitCounter.jsx";
 import { transparenciaLinks } from "../data/site.js";
 import { obligacionesPorAnio, aniosObligaciones, informes } from "../data/transparencia.js";
+import { getDocsTransparencia } from "../lib/wp.js";
 import { asset } from "../lib/asset.js";
 
 // Información que el municipio proporcionará para completar el apartado (punto 9).
@@ -24,8 +25,52 @@ function NoProporcionada({ texto = "Información no proporcionada" }) {
 export default function Transparencia() {
   const [anio, setAnio] = useState(aniosObligaciones[0]);
   const [informeKey, setInformeKey] = useState(informes[0].key);
+  // Documentos subidos desde el CMS, agrupados por año y ley: { anio: { ley: [{label, file}] } }
+  const [cmsDocs, setCmsDocs] = useState({});
 
-  const leyes = obligacionesPorAnio[anio];
+  useEffect(() => {
+    let alive = true;
+    getDocsTransparencia(300).then((d) => {
+      if (!alive || !d || !d.length) return;
+      const grouped = {};
+      d.forEach((doc) => {
+        (grouped[doc.anio] ||= {});
+        (grouped[doc.anio][doc.ley] ||= []);
+        grouped[doc.anio][doc.ley].push({ label: doc.title, file: doc.file });
+      });
+      setCmsDocs(grouped);
+    });
+    return () => { alive = false; };
+  }, []);
+
+  // Años disponibles = los de la tabla base + los que tengan documentos en el CMS.
+  const anios = useMemo(() => {
+    const set = new Set(aniosObligaciones.map(Number));
+    Object.keys(cmsDocs).forEach((y) => set.add(Number(y)));
+    return [...set].sort((a, b) => b - a);
+  }, [cmsDocs]);
+
+  // Fusiona las leyes/documentos base del año con los subidos desde el CMS.
+  const leyes = useMemo(() => {
+    const base = obligacionesPorAnio[anio];
+    const extra = cmsDocs[anio];
+    if (!base && !extra) return null;
+    const result = [];
+    const byLey = new Map();
+    (base || []).forEach((l) => {
+      const copy = { ley: l.ley, docs: [...l.docs] };
+      result.push(copy);
+      byLey.set(l.ley, copy);
+    });
+    if (extra) {
+      Object.entries(extra).forEach(([ley, docs]) => {
+        if (byLey.has(ley)) byLey.get(ley).docs.push(...docs);
+        else { const copy = { ley, docs: [...docs] }; result.push(copy); byLey.set(ley, copy); }
+      });
+    }
+    return result;
+  }, [anio, cmsDocs]);
+
   const informe = informes.find((i) => i.key === informeKey) || informes[0];
 
   return (
@@ -81,7 +126,7 @@ export default function Transparencia() {
           <div className="year-select">
             <label htmlFor="anio-obligaciones"><Icon name="calendar" size={18} /> Ejercicio fiscal</label>
             <select id="anio-obligaciones" value={anio} onChange={(e) => setAnio(Number(e.target.value))}>
-              {aniosObligaciones.map((y) => (
+              {anios.map((y) => (
                 <option key={y} value={y}>{y}</option>
               ))}
             </select>

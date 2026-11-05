@@ -97,6 +97,27 @@ export function mapCapacitacion(raw) {
   };
 }
 
+// Convierte una publicación de "gaceta" (CPT con ACF) al formato de la página Gaceta.
+export function mapGaceta(raw) {
+  const acf = raw.acf || {};
+  return {
+    num: parseInt(acf.numero, 10) || 0,
+    title: stripHtml(raw.title && raw.title.rendered),
+    file: fileUrl(acf.archivo),
+  };
+}
+
+// Convierte un "documento de transparencia" (CPT con ACF) al formato de Transparencia.
+export function mapDocTransparencia(raw) {
+  const acf = raw.acf || {};
+  return {
+    anio: parseInt(acf.anio, 10) || null,
+    ley: acf.ley || "",
+    title: stripHtml(raw.title && raw.title.rendered),
+    file: fileUrl(acf.archivo),
+  };
+}
+
 // Convierte un "contrato" (CPT con campos ACF) al formato de la página Contratos.
 export function mapContrato(raw) {
   const acf = raw.acf || {};
@@ -153,4 +174,18 @@ export async function getContratos(perPage = 100) {
   const data = await wpFetch(`contrato?_embed&per_page=${perPage}&status=publish`);
   if (!Array.isArray(data) || data.length === 0) return null;
   return data.map(mapContrato);
+}
+
+export async function getGaceta(perPage = 100) {
+  // Requiere el tipo "gaceta" (CPT UI + ACF: numero, archivo).
+  const data = await wpFetch(`gaceta?per_page=${perPage}&status=publish`);
+  if (!Array.isArray(data) || data.length === 0) return null;
+  return data.map(mapGaceta).filter((g) => g.file);
+}
+
+export async function getDocsTransparencia(perPage = 100) {
+  // Requiere el tipo "doc_transparencia" (CPT UI + ACF: anio, ley, archivo).
+  const data = await wpFetch(`doc_transparencia?per_page=${perPage}&status=publish`);
+  if (!Array.isArray(data) || data.length === 0) return null;
+  return data.map(mapDocTransparencia).filter((d) => d.file && d.anio);
 }
