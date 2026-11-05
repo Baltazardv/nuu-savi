@@ -62,7 +62,7 @@ export const secciones = [
       { src: "/assets/fotos/conociendo/gastronomia-panela-3.webp", cap: "Producción de panocha" },
       { src: "/assets/fotos/conociendo/gastronomia-chilate-elaboracion.webp", cap: "Elaboración del chilate de manera artesanal" },
       { src: "/assets/fotos/conociendo/gastronomia-sivaa-cuenco.webp", cap: "Siva'a (chilate)" },
-      { src: "/assets/fotos/conociendo/gastronomia-chilate-2.webp", cap: "Bebida tradicional de la región" },
+      { src: "/assets/fotos/conociendo/gastronomia-chilate-2.webp", cap: "Bebida tradicional Si'va (chilate)" },
     ],
   },
   {
@@ -74,10 +74,10 @@ export const secciones = [
       "comunidad realiza adorando a San Marcos: la comunidad se reúne, prepara el altar y realiza el " +
       "baile de Potete, acompañado por piezas musicales interpretadas por los músicos locales.",
     photos: [
-      { src: "/assets/fotos/conociendo/cultura-sanmarcos-1.webp", cap: "Festividad de San Marcos" },
+      { src: "/assets/fotos/conociendo/cultura-sanmarcos-1.webp", cap: "Festividad de San Marcos, Lugar Sagrado" },
       { src: "/assets/fotos/conociendo/cultura-sanmarcos-2.webp", cap: "Ritual de petición de lluvia" },
       { src: "/assets/fotos/conociendo/cultura-potete-1.webp", cap: "Danza de Potete" },
-      { src: "/assets/fotos/conociendo/cultura-potete-2.webp", cap: "Baile tradicional" },
+      { src: "/assets/fotos/conociendo/cultura-potete-2.webp", cap: "Músicos Tradicionales de Ñuu Savi" },
       { src: "/assets/fotos/conociendo/cultura-muertos.webp", cap: "Día de Muertos" },
     ],
   },
